@@ -1,0 +1,473 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Collections Management | The Gallery</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-dim": "#5c1202",
+              "on-background": "#2f3430",
+              "inverse-surface": "#0d0f0d",
+              "on-tertiary-fixed-variant": "#695d50",
+              secondary: "#725a4a",
+              "tertiary-fixed-dim": "#e8d7c7",
+              "tertiary-fixed": "#f6e6d4",
+              "outline-variant": "#afb3ae",
+              "on-error": "#fff7f6",
+              "surface-variant": "#e0e4de",
+              "inverse-primary": "#fee8cb",
+              "on-surface": "#2f3430",
+              "on-primary": "#fff6ee",
+              "primary-fixed": "#f5dfc3",
+              "surface-container-low": "#f4f4f0",
+              "on-tertiary": "#fff7f3",
+              "on-primary-container": "#5e503a",
+              background: "#faf9f6",
+              "on-error-container": "#742410",
+              "secondary-fixed-dim": "#efceba",
+              primary: "#6b5c46",
+              "on-secondary-fixed-variant": "#6f5747",
+              "error-container": "#fe8b70",
+              "secondary-fixed": "#fddcc7",
+              outline: "#777c77",
+              "primary-fixed-dim": "#e6d1b6",
+              "secondary-dim": "#654e3f",
+              "surface-container": "#edeeea",
+              "on-tertiary-container": "#5e5346",
+              "surface-container-highest": "#e0e4de",
+              "tertiary-dim": "#5c5144",
+              "on-surface-variant": "#5c605c",
+              surface: "#faf9f6",
+              error: "#9e422c",
+              tertiary: "#695d50",
+              "surface-tint": "#6b5c46",
+              "surface-bright": "#faf9f6",
+              "on-tertiary-fixed": "#4b4135",
+              "on-secondary-container": "#644d3d",
+              "on-primary-fixed": "#4b3d29",
+              "tertiary-container": "#f6e6d4",
+              "secondary-container": "#fddcc7",
+              "primary-container": "#f5dfc3",
+              "surface-container-high": "#e6e9e4",
+              "surface-dim": "#d6dbd5",
+              "primary-dim": "#5f503b",
+              "on-primary-fixed-variant": "#685943",
+              "on-secondary-fixed": "#503b2c",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#9d9d9a",
+              "on-secondary": "#fff7f4",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              display: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Manrope", sans-serif;
+        background-color: #faf9f6;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .serif-title {
+        font-family: "Noto Serif", serif;
+      }
+      .asymmetric-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+      }
+    </style>
+  </head>
+  <body class="text-on-background bg-background">
+    <!-- SideNavBar Component -->
+    <nav
+      class="h-screen w-64 flex flex-col fixed left-0 top-0 bg-[#edeeea] dark:bg-stone-900 flex flex-col h-full py-8"
+    >
+      <div class="px-8 mb-12">
+        <h1
+          class="font-['Noto_Serif'] text-2xl italic text-[#2f3430] dark:text-stone-100"
+        >
+          The Gallery
+        </h1>
+        <p
+          class="font-['Manrope'] font-medium tracking-wide uppercase text-[11px] text-[#6b5c46] mt-1"
+        >
+          Admin Console
+        </p>
+      </div>
+      <div class="flex flex-col space-y-1">
+        <a
+          class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[18px]">dashboard</span>
+          Dashboard
+        </a>
+        <a
+          class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[18px]">palette</span>
+          Artisans
+        </a>
+        <!-- Active State: Collections -->
+        <a
+          class="text-[#6b5c46] font-bold bg-[#faf9f6]/50 dark:bg-stone-800/50 rounded-l-full ml-4 pl-4 py-3 font-['Manrope'] tracking-wide uppercase text-[11px] flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[18px]">grid_view</span>
+          Collections
+        </a>
+        <a
+          class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[18px]">inventory_2</span>
+          Products
+        </a>
+        <a
+          class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[18px]"
+            >shopping_cart</span
+          >
+          Orders
+        </a>
+        <a
+          class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[18px]">group</span>
+          Customers
+        </a>
+        <a
+          class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[18px]">payments</span>
+          Transactions
+        </a>
+        <a
+          class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-[18px]">settings</span>
+          Settings
+        </a>
+      </div>
+      <div
+        class="mt-auto px-8 flex items-center gap-3 pt-8 border-t border-transparent"
+      >
+        <div
+          class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden"
+        >
+          <img
+            alt="Curator Profile"
+            class="w-full h-full object-cover"
+            data-alt="professional headshot of a middle-aged male curator with a warm smile in a brightly lit art studio setting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIKSzazW41jG0qUgAaXwX_R_N9kUp93zRMG7W9a0gMfy1Xt98xB5mHmpnr3VGKArvwMYi17BcnDIE2LSVsk7WJ2If-qt97POL-BO0WsWHMzV5RI0CICFiUd9Yq_XVk-2Xml9U-o7MBH18Gd0VfeGM7RncC5rqQA8Ciem-m8gtJu9gQKtvZnI--nA9TARURQHEavG5PdTasyy0ikRMS6qagSQXm-RiwSGJaMHcohUQm-yiCN_5zikSFxZVwsYOqDwJatHWLtqs_Yz0"
+          />
+        </div>
+        <div>
+          <p class="text-[12px] font-bold text-on-surface">Elena Rossi</p>
+          <p class="text-[10px] text-on-surface/50">Chief Curator</p>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content Area -->
+    <main class="ml-64 min-h-screen">
+      <!-- TopAppBar Component -->
+      <header
+        class="w-full h-16 sticky top-0 z-40 bg-[#faf9f6]/80 dark:bg-stone-950/80 backdrop-blur-md flex justify-between items-center px-12"
+      >
+        <div class="flex items-center gap-6">
+          <h2
+            class="font-['Noto_Serif'] font-bold text-[#2f3430] dark:text-stone-100 text-xl tracking-tight"
+          >
+            Dashboard Overview
+          </h2>
+          <div class="relative">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface/40 text-sm"
+              >search</span
+            >
+            <input
+              class="bg-surface-container-low/50 border-none rounded-full py-1.5 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/20 w-64 placeholder:text-on-surface/30"
+              placeholder="Search collections..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-6 text-[#6b5c46] dark:text-[#8d775f]">
+          <button
+            class="material-symbols-outlined hover:text-[#6b5c46] transition-colors duration-200"
+          >
+            notifications
+          </button>
+          <button
+            class="material-symbols-outlined hover:text-[#6b5c46] transition-colors duration-200"
+          >
+            history
+          </button>
+          <button
+            class="material-symbols-outlined hover:text-[#6b5c46] transition-colors duration-200"
+          >
+            account_circle
+          </button>
+        </div>
+      </header>
+      <!-- Gallery Content -->
+      <div class="px-12 py-12 max-w-7xl">
+        <!-- Hero Header Section -->
+        <section class="flex justify-between items-end mb-16">
+          <div>
+            <span
+              class="font-['Manrope'] font-medium tracking-widest uppercase text-[11px] text-primary block mb-2"
+              >Curated Archives</span
+            >
+            <h1
+              class="font-['Noto_Serif'] text-5xl font-light tracking-tight text-on-surface leading-tight"
+            >
+              Manage Collections
+            </h1>
+          </div>
+          <button
+            class="bg-primary text-on-primary px-8 py-4 rounded-md flex items-center gap-3 shadow-sm hover:bg-primary-dim transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined">add</span>
+            <span
+              class="font-['Manrope'] font-bold tracking-wide uppercase text-[11px]"
+              >Add New Collection</span
+            >
+          </button>
+        </section>
+        <!-- Asymmetric Grid of Collections -->
+        <div class="asymmetric-grid">
+          <!-- Collection Card 01: Tableware (Large Focus) -->
+          <div class="col-span-12 md:col-span-7 group">
+            <div
+              class="relative overflow-hidden aspect-[16/10] bg-surface-container-low mb-6 transition-all duration-700"
+            >
+              <img
+                alt="Artisan Tableware"
+                class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+                data-alt="close-up of handcrafted ceramic plates and bowls in muted earthy tones stacked on a rustic wooden table with soft morning light"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc-KTN_3IDAInj4impoLcBQRwXgfkbc7awy4inHdmmr-v4MjpCGohhWzf28e9YXBvToX3P9n2IcA1CnD65kpbM7Cv2COy-MpoHxhOoExSPxhEdIofsGiF9HvvaM3WkDyeHDUrI0wBTburF4XTUOzmopwUDeQLlIaoBd3PpNOzX_uQt0eHm3x8u0bweCNAelfKXDwRZZSf5rIH-dK_zVPUzYWYX40XtDq68QK_UaMbUjPAiMeDh8By9ZN-abKieodv7Le8SwDy43VU"
+              />
+              <div
+                class="absolute inset-0 bg-on-background/5 opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div class="absolute top-6 right-6 flex gap-2">
+                <button
+                  class="w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >edit</span
+                  >
+                </button>
+                <button
+                  class="w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-on-surface hover:text-error transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >delete</span
+                  >
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3
+                  class="font-['Noto_Serif'] text-2xl font-medium text-on-background mb-1"
+                >
+                  Tableware Essentials
+                </h3>
+                <p
+                  class="font-['Manrope'] text-on-surface/60 text-sm tracking-wide"
+                >
+                  48 Artifacts • Curated by Studio A
+                </p>
+              </div>
+              <span
+                class="font-['Manrope'] text-[11px] font-bold tracking-widest uppercase py-1 px-3 bg-secondary-container text-on-secondary-container rounded-full"
+                >Active</span
+              >
+            </div>
+          </div>
+          <!-- Collection Card 02: Vases (Portrait) -->
+          <div class="col-span-12 md:col-span-5 md:mt-24 group">
+            <div
+              class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-6"
+            >
+              <img
+                alt="Modern Vases"
+                class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+                data-alt="a minimalist sculptural ceramic vase with organic curves standing in front of a soft beige background with gentle shadows"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkaDtRViezi87t6PmUCoh4kSjsVAL_703hJ4W3t0LusX2KuAynFKMpr_HvgniHtPE031MGHPBAVe7jIfSj8D28-dMIVJjYd4BVeWlms2H46yrGNLl8dW1I83EmRKGIH1-F_o4WCcOaBvn0dnzzhlwoBgfzm5vW9NilBgvhqt5acgFqXX_SHIk0qnfeXV-HkqRimcODYhDwe3ZYvUrq3DF5YlSeU5-UyIDaMbEeYnmL5Ue5c6UbWiuZcxmv7zaBVhwav_JQI1VI194"
+              />
+              <div class="absolute top-6 right-6 flex gap-2">
+                <button
+                  class="w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >edit</span
+                  >
+                </button>
+              </div>
+            </div>
+            <div>
+              <h3
+                class="font-['Noto_Serif'] text-2xl font-medium text-on-background mb-1"
+              >
+                Sculptural Vases
+              </h3>
+              <p
+                class="font-['Manrope'] text-on-surface/60 text-sm tracking-wide"
+              >
+                24 Artifacts • Winter Series
+              </p>
+            </div>
+          </div>
+          <!-- Collection Card 03: Sculptures (Landscape) -->
+          <div class="col-span-12 md:col-span-5 group -mt-12">
+            <div
+              class="relative overflow-hidden aspect-square bg-surface-container-low mb-6"
+            >
+              <img
+                alt="Abstract Sculptures"
+                class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+                data-alt="abstract ceramic sculpture with intricate textures and earth tones placed on a clean stone pedestal under soft gallery lighting"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIPaOFDu0pZQj76QQAgjdl6i_ISF9bcgtdwNWr7rEWDLAPHevGyDF4UskhWyZ0P1us2CLF9BKTgc8RUyG8FQ3Ll6VX_ZZa2rhEL6xMVgxkyToJBs9bwYpRijdZoC3DnNv9eDddS84bt5Ou5EkMqOD9f6tyjDnCbNT7UuViw4ZARqqOOmqXoj5l4g2melSlLhwoCFMVrKNGvTdjmoyflMoHYk_9ye_JGntbJ-LvfJCIqBCEdzVzWpL0YnxhUka0r3NoxvRtIxce618"
+              />
+              <div class="absolute top-6 right-6 flex gap-2">
+                <button
+                  class="w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >edit</span
+                  >
+                </button>
+              </div>
+            </div>
+            <div>
+              <h3
+                class="font-['Noto_Serif'] text-2xl font-medium text-on-background mb-1"
+              >
+                Avant-Garde
+              </h3>
+              <p
+                class="font-['Manrope'] text-on-surface/60 text-sm tracking-wide"
+              >
+                12 Artifacts • Limited Run
+              </p>
+            </div>
+          </div>
+          <!-- Collection Card 04: New Arrivals (Small) -->
+          <div class="col-span-12 md:col-span-7 group">
+            <div
+              class="relative overflow-hidden aspect-[16/8] bg-surface-container-low mb-6"
+            >
+              <img
+                alt="Kiln Fresh"
+                class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+                data-alt="an array of freshly fired unglazed ceramic bowls being handled by a potter with dusty hands in a warm sunlit workshop"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPzxVsipX2oOknLHjlXVHCNaP7Z5FJuH4n4vxz7AFEYLoxbq1JxAuKaToKAQwCB_Ydooy9zro-qwejhyEHyXARw4K0ufmNovGjKGqqBxxaFeaMw71rAowqP3BrLrZRadgSJxa5warwckf-RdGumDwW3vfCDylwLTV5kqLHOF6Tfbgz3R5yTnTfPCnSRRWoClCw4LsOdFQ1kLxVQ4GImy5xbZIl0rzBHOKrGO_OlsLziavYRw0AvcHIA0dd7MsVMNxEU21-bcz8lKs"
+              />
+              <div class="absolute top-6 right-6 flex gap-2">
+                <button
+                  class="w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >edit</span
+                  >
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3
+                  class="font-['Noto_Serif'] text-2xl font-medium text-on-background mb-1"
+                >
+                  Raw Teracotta
+                </h3>
+                <p
+                  class="font-['Manrope'] text-on-surface/60 text-sm tracking-wide"
+                >
+                  31 Artifacts • Seasonal Drafts
+                </p>
+              </div>
+              <span
+                class="font-['Manrope'] text-[11px] font-bold tracking-widest uppercase py-1 px-3 bg-tertiary-container text-on-tertiary-container rounded-full"
+                >Draft</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Management Stats Footer -->
+        <footer
+          class="mt-32 pt-12 border-t border-outline-variant/15 flex flex-wrap gap-12"
+        >
+          <div class="flex flex-col gap-1">
+            <span
+              class="font-['Manrope'] text-[10px] font-bold tracking-widest uppercase text-on-surface/40"
+              >Total Collections</span
+            >
+            <p class="font-['Noto_Serif'] text-3xl text-primary">14</p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span
+              class="font-['Manrope'] text-[10px] font-bold tracking-widest uppercase text-on-surface/40"
+              >Total Artifacts</span
+            >
+            <p class="font-['Noto_Serif'] text-3xl text-primary">342</p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span
+              class="font-['Manrope'] text-[10px] font-bold tracking-widest uppercase text-on-surface/40"
+              >Active Contributors</span
+            >
+            <p class="font-['Noto_Serif'] text-3xl text-primary">08</p>
+          </div>
+        </footer>
+      </div>
+    </main>
+    <!-- Contextual FAB - Hidden by mandate on management screens as per rules but I'll add the container logic -->
+    <!-- Suppression Logic: FAB is suppressed on management/details pages -->
+  </body>
+</html>

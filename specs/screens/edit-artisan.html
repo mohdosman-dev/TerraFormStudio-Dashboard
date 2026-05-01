@@ -1,0 +1,528 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>The Gallery - Artisan Editor</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-dim": "#5c1202",
+              "on-background": "#2f3430",
+              "inverse-surface": "#0d0f0d",
+              "on-tertiary-fixed-variant": "#695d50",
+              secondary: "#725a4a",
+              "tertiary-fixed-dim": "#e8d7c7",
+              "tertiary-fixed": "#f6e6d4",
+              "outline-variant": "#afb3ae",
+              "on-error": "#fff7f6",
+              "surface-variant": "#e0e4de",
+              "inverse-primary": "#fee8cb",
+              "on-surface": "#2f3430",
+              "on-primary": "#fff6ee",
+              "primary-fixed": "#f5dfc3",
+              "surface-container-low": "#f4f4f0",
+              "on-tertiary": "#fff7f3",
+              "on-primary-container": "#5e503a",
+              background: "#faf9f6",
+              "on-error-container": "#742410",
+              "secondary-fixed-dim": "#efceba",
+              primary: "#6b5c46",
+              "on-secondary-fixed-variant": "#6f5747",
+              "error-container": "#fe8b70",
+              "secondary-fixed": "#fddcc7",
+              outline: "#777c77",
+              "primary-fixed-dim": "#e6d1b6",
+              "secondary-dim": "#654e3f",
+              "surface-container": "#edeeea",
+              "on-tertiary-container": "#5e5346",
+              "surface-container-highest": "#e0e4de",
+              "tertiary-dim": "#5c5144",
+              "on-surface-variant": "#5c605c",
+              surface: "#faf9f6",
+              error: "#9e422c",
+              tertiary: "#695d50",
+              "surface-tint": "#6b5c46",
+              "surface-bright": "#faf9f6",
+              "on-tertiary-fixed": "#4b4135",
+              "on-secondary-container": "#644d3d",
+              "on-primary-fixed": "#4b3d29",
+              "tertiary-container": "#f6e6d4",
+              "secondary-container": "#fddcc7",
+              "primary-container": "#f5dfc3",
+              "surface-container-high": "#e6e9e4",
+              "surface-dim": "#d6dbd5",
+              "primary-dim": "#5f503b",
+              "on-primary-fixed-variant": "#685943",
+              "on-secondary-fixed": "#503b2c",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#9d9d9a",
+              "on-secondary": "#fff7f4",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              display: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .ghost-border {
+        border-bottom: 1px solid rgba(175, 179, 174, 0.15);
+      }
+      .ghost-border:focus-within {
+        border-bottom: 1px solid #6b5c46;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #faf9f6;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #e0e4de;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body selection:bg-primary-container"
+  >
+    <!-- SideNavBar Shell -->
+    <aside
+      class="h-screen w-64 flex flex-col fixed left-0 top-0 bg-[#edeeea] dark:bg-stone-900 z-50"
+    >
+      <div class="flex flex-col h-full py-8">
+        <div class="px-8 mb-12">
+          <h1
+            class="font-['Noto_Serif'] text-2xl italic text-[#2f3430] dark:text-stone-100"
+          >
+            The Gallery
+          </h1>
+          <p
+            class="font-['Manrope'] font-medium tracking-wide uppercase text-[11px] text-[#6b5c46]/60 mt-1"
+          >
+            Admin Console
+          </p>
+        </div>
+        <nav class="flex-1 space-y-1">
+          <!-- Dashboard -->
+          <a
+            class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors flex items-center gap-3 font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">dashboard</span>
+            Dashboard
+          </a>
+          <!-- Artisans (ACTIVE) -->
+          <a
+            class="text-[#6b5c46] font-bold bg-[#faf9f6]/50 dark:bg-stone-800/50 rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 font-['Manrope'] tracking-wide uppercase text-[11px]"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">palette</span>
+            Artisans
+          </a>
+          <!-- Collections -->
+          <a
+            class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors flex items-center gap-3 font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">grid_view</span>
+            Collections
+          </a>
+          <!-- Products -->
+          <a
+            class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors flex items-center gap-3 font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">inventory_2</span>
+            Products
+          </a>
+          <!-- Orders -->
+          <a
+            class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors flex items-center gap-3 font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">shopping_cart</span>
+            Orders
+          </a>
+          <!-- Customers -->
+          <a
+            class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors flex items-center gap-3 font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">group</span>
+            Customers
+          </a>
+          <!-- Transactions -->
+          <a
+            class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors flex items-center gap-3 font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">payments</span>
+            Transactions
+          </a>
+          <!-- Settings -->
+          <a
+            class="text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors flex items-center gap-3 font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30"
+            href="#"
+          >
+            <span class="material-symbols-outlined text-lg">settings</span>
+            Settings
+          </a>
+        </nav>
+        <div class="px-8 mt-auto flex items-center gap-3">
+          <img
+            alt="Curator Profile"
+            class="w-8 h-8 rounded-full object-cover"
+            data-alt="portrait of a middle-aged creative director in a minimalist studio setting, soft natural side lighting, muted earth tones"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFGm98v27Omz4hrHqukyfkNJZdPRhZEcvCOcpsigl1c9zNActJFR9WndpqziVE9LrE4MyeVP8fmHtxmumYMYuslthmXKkKhJxNbjjl097ziKwoj6MaYGruVTNHp3k9oK9Sjpvc9UCEWypuZ_WnzSfTPeFojR6JOLBjR6g9SOzLI9Tw5fzg4V_ZU0UWLyrj_h6GrbhFpCpK5J-uj4ha_U4T1sUi3XMUBciGLxng_0R89ronlirUxn12qoY_UTNykUXuqINuYtONxrs"
+          />
+          <div class="flex flex-col">
+            <span class="text-[11px] font-bold text-[#2f3430]"
+              >Julian Thorne</span
+            >
+            <span class="text-[9px] uppercase tracking-widest text-[#6b5c46]/60"
+              >Head Curator</span
+            >
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="ml-64 min-h-screen">
+      <!-- TopAppBar -->
+      <header
+        class="w-full h-16 sticky top-0 z-40 bg-[#faf9f6]/80 backdrop-blur-md flex justify-between items-center px-12"
+      >
+        <div class="flex items-center gap-8">
+          <div class="relative">
+            <span
+              class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-on-surface-variant/40 text-lg"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 pl-7 text-sm font-body text-on-surface-variant placeholder:text-on-surface-variant/40"
+              placeholder="Search entries..."
+              type="text"
+            />
+          </div>
+          <h2 class="font-['Noto_Serif'] text-xl tracking-tight text-[#2f3430]">
+            Artisan Profile Editor
+          </h2>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-4 text-[#2f3430]/40">
+            <span
+              class="material-symbols-outlined cursor-pointer hover:text-[#6b5c46] transition-colors"
+              >notifications</span
+            >
+            <span
+              class="material-symbols-outlined cursor-pointer hover:text-[#6b5c46] transition-colors"
+              >history</span
+            >
+            <span
+              class="material-symbols-outlined cursor-pointer hover:text-[#6b5c46] transition-colors"
+              >account_circle</span
+            >
+          </div>
+          <button
+            class="bg-primary text-on-primary px-6 py-2 rounded-md font-label text-[11px] uppercase tracking-widest font-bold shadow-sm hover:bg-primary-dim transition-all active:scale-95"
+          >
+            Save Artisan
+          </button>
+        </div>
+      </header>
+      <div class="px-12 py-12 max-w-7xl mx-auto">
+        <!-- Hero Form Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <!-- Left Column: Identity & Story -->
+          <div class="lg:col-span-7 space-y-16">
+            <section class="space-y-8">
+              <label
+                class="block font-label text-[10px] uppercase tracking-[0.2em] text-primary/60 mb-2"
+                >Artisan Identity</label
+              >
+              <div class="space-y-12">
+                <div class="ghost-border pb-2">
+                  <input
+                    class="w-full bg-transparent border-none p-0 text-5xl font-display text-on-surface placeholder:text-on-surface-variant/20 focus:ring-0"
+                    placeholder="Full Name"
+                    type="text"
+                    value="Elena Moretti"
+                  />
+                </div>
+                <div class="grid grid-cols-2 gap-12">
+                  <div class="space-y-1">
+                    <label
+                      class="block font-label text-[10px] uppercase tracking-widest text-on-surface-variant/60"
+                      >Location</label
+                    >
+                    <div class="ghost-border">
+                      <input
+                        class="w-full bg-transparent border-none p-0 py-2 text-lg font-body focus:ring-0"
+                        type="text"
+                        value="Tuscany, Italy"
+                      />
+                    </div>
+                  </div>
+                  <div class="space-y-1">
+                    <label
+                      class="block font-label text-[10px] uppercase tracking-widest text-on-surface-variant/60"
+                      >Craft Specialty</label
+                    >
+                    <div class="ghost-border">
+                      <input
+                        class="w-full bg-transparent border-none p-0 py-2 text-lg font-body focus:ring-0"
+                        type="text"
+                        value="Hand-thrown Stoneware"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="space-y-6">
+              <label
+                class="block font-label text-[10px] uppercase tracking-[0.2em] text-primary/60"
+                >Artisan Story</label
+              >
+              <div class="bg-surface-container-low p-10 rounded-lg">
+                <textarea
+                  class="w-full bg-transparent border-none p-0 text-lg leading-relaxed font-display italic text-on-surface focus:ring-0 resize-none"
+                  placeholder="Begin the narrative of their craft here..."
+                  rows="8"
+                >
+Elena's journey began in the red-clay hills of her childhood home, where she learned that clay is not just a medium, but a silent conversation between the earth and the hand. Her work is defined by intentional imperfections, celebrating the 'wabi-sabi' of raw textures and unpredictable glazes. Each piece is a unique record of a moment in time, fired in her wood-burning kiln using traditional methods passed down through three generations of master potters.</textarea
+                >
+              </div>
+            </section>
+            <section class="space-y-8">
+              <div class="flex justify-between items-center">
+                <label
+                  class="block font-label text-[10px] uppercase tracking-[0.2em] text-primary/60"
+                  >Social Connections</label
+                >
+                <button
+                  class="text-primary text-[10px] font-bold uppercase tracking-widest hover:underline transition-all"
+                >
+                  Add Network
+                </button>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div
+                  class="flex items-center gap-4 bg-surface-container-lowest p-4 rounded shadow-[0_4px_24px_rgba(47,52,48,0.04)]"
+                >
+                  <span
+                    class="material-symbols-outlined text-on-surface-variant"
+                    >language</span
+                  >
+                  <input
+                    class="flex-1 bg-transparent border-none p-0 text-sm font-body focus:ring-0"
+                    type="text"
+                    value="elenamoretti.art"
+                  />
+                </div>
+                <div
+                  class="flex items-center gap-4 bg-surface-container-lowest p-4 rounded shadow-[0_4px_24px_rgba(47,52,48,0.04)]"
+                >
+                  <span
+                    class="material-symbols-outlined text-on-surface-variant"
+                    >photo_camera</span
+                  >
+                  <input
+                    class="flex-1 bg-transparent border-none p-0 text-sm font-body focus:ring-0"
+                    type="text"
+                    value="@moretti_studio"
+                  />
+                </div>
+              </div>
+            </section>
+          </div>
+          <!-- Right Column: Visuals & Studio -->
+          <div class="lg:col-span-5 space-y-12">
+            <section class="space-y-6">
+              <div class="flex justify-between items-end mb-4">
+                <label
+                  class="block font-label text-[10px] uppercase tracking-[0.2em] text-primary/60"
+                  >Studio Portfolio</label
+                >
+                <span class="text-[10px] text-on-surface-variant/60"
+                  >4 / 8 slots filled</span
+                >
+              </div>
+              <!-- Asymmetrical Gallery Grid -->
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  class="relative group aspect-[4/5] overflow-hidden rounded-sm bg-surface-container"
+                >
+                  <img
+                    alt="Studio process"
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    data-alt="close-up of artisan hands shaping a clay bowl on a potter's wheel, soft daylight, clay splatters, cinematic feel"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD754JobwH_5SfMaPdorabcjisXlgT2nXSMZ-ijJADgsua0vL2IUy-JBx4zlrNfT96Ys8CZo5Is7ymszAHc0KRs-UvCdxSWqQdKAPyzwt81p7D1jF60G4kHrEpZ6LXFRDuj2HeagFX3EcEhhYPb414oiEODQ-qSzJlumj9XFOXmeqAfm2XGeEZq8ovHKcSCnad3AGKkX-cYTF78cqRInsl2qL0N_MNZ27FDuzPFZOs6PcJX9LJ4eUrxJV_fQDjmVYknAIj3CZNmVZ8"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-white text-3xl"
+                      >edit</span
+                    >
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <div
+                    class="relative group aspect-square overflow-hidden rounded-sm bg-surface-container"
+                  >
+                    <img
+                      alt="Studio atmosphere"
+                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      data-alt="minimalist pottery studio with rows of unfinished stoneware on wooden shelves, warm evening sun casting long shadows"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2cjPi-L_BHTIlNiqltTVeM1Y27LFa8Va1UwTJ__B21nwO0vfssIJXlrhqPC_AMvtEIRgzzBdB0lvL6140h5sbndxr6-ySjzNUSXPEdoiiernaCsyNjD6XBdx9LfS09BfCQsfyeP4gM9Djf_88I-cCzVPt8oR-NQdr8kaSrKFOrhUXU0lDRapmeaF3k2cPwz2o7X4I3mOgk3dnRkmlSq9vYZ_cPpisk9407ToMlLEz_rZX6lNQHI91y73_3YOodPP95ba31cI-8VI"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-white text-2xl text-white"
+                        >edit</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="relative group aspect-square overflow-hidden rounded-sm bg-surface-container"
+                  >
+                    <img
+                      alt="Finished work"
+                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      data-alt="a single matte black ceramic vase on a rough concrete surface, dramatic side lighting, high contrast"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz7he3LuCHGwE_OOXG1PMoEriGvZY1V2TYrQIcR6Pl4VSExNXarQNW2crGE-bwGxZR50YezwH6WFBNDyS5fvf0PAlF3MHmJ48YReRZ1_h84mbwqE-4kTmm3FS7tkEeNujQUDCM_LiIikXOOZXn86_4yMD9ajjEKcXPdqsT_L6LxV2juG1ZNwlVzvcsPZR-gES9JtBifqYakaVa9YNJ3tFCi8SkgFxzE7aO1IyklSZ3tEn8GgGAxJUBVhm_zQvyZkKd1fdknM_8Ki8"
+                    />
+                    <div
+                      class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-white text-2xl"
+                        >edit</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-span-2 relative group aspect-[16/9] overflow-hidden rounded-sm bg-surface-container"
+                >
+                  <div
+                    class="w-full h-full flex flex-col items-center justify-center border-2 border-dashed border-outline-variant/30 text-on-surface-variant/40 hover:bg-surface-container-high transition-colors cursor-pointer"
+                  >
+                    <span class="material-symbols-outlined text-4xl mb-2"
+                      >add_photo_alternate</span
+                    >
+                    <span
+                      class="font-label text-[10px] uppercase tracking-widest"
+                      >Upload Studio Shot</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- Meta Tags / Chips Section -->
+            <section class="space-y-4">
+              <label
+                class="block font-label text-[10px] uppercase tracking-[0.2em] text-primary/60"
+                >Artisan Tags</label
+              >
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase tracking-wider"
+                  >Sustainable</span
+                >
+                <span
+                  class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase tracking-wider"
+                  >Ancient Techniques</span
+                >
+                <span
+                  class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase tracking-wider"
+                  >Terracotta</span
+                >
+                <button
+                  class="px-4 py-2 bg-surface-container-highest text-primary rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1"
+                >
+                  <span class="material-symbols-outlined text-[14px]">add</span>
+                  Add Tag
+                </button>
+              </div>
+            </section>
+            <!-- Profile Visibility -->
+            <section class="bg-surface-container-high p-6 rounded-lg space-y-4">
+              <div class="flex items-center justify-between">
+                <span
+                  class="font-label text-[11px] font-bold uppercase tracking-wider"
+                  >Visibility Status</span
+                >
+                <span
+                  class="inline-flex items-center gap-2 text-[11px] text-green-700 font-bold uppercase"
+                >
+                  <span
+                    class="w-2 h-2 rounded-full bg-green-600 animate-pulse"
+                  ></span>
+                  Published
+                </span>
+              </div>
+              <p class="text-[11px] text-on-surface-variant/70 leading-relaxed">
+                This artisan profile is currently live in the public gallery.
+                Any changes saved will be visible immediately.
+              </p>
+              <button
+                class="w-full border border-primary/20 text-primary py-2 rounded font-label text-[10px] uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all"
+              >
+                Unpublish Profile
+              </button>
+            </section>
+          </div>
+        </div>
+        <!-- Floating Save Banner for Mobile (Hidden on Desktop) -->
+        <div class="md:hidden fixed bottom-6 left-6 right-6 z-50">
+          <button
+            class="w-full bg-primary text-on-primary py-4 rounded-full shadow-2xl font-label uppercase tracking-[0.2em] font-extrabold flex items-center justify-center gap-3"
+          >
+            <span class="material-symbols-outlined">save</span>
+            Save Profile
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

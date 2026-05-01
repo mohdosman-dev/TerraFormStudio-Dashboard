@@ -1,0 +1,623 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Customers | The Gallery Admin</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-dim": "#5c1202",
+              "on-background": "#2f3430",
+              "inverse-surface": "#0d0f0d",
+              "on-tertiary-fixed-variant": "#695d50",
+              secondary: "#725a4a",
+              "tertiary-fixed-dim": "#e8d7c7",
+              "tertiary-fixed": "#f6e6d4",
+              "outline-variant": "#afb3ae",
+              "on-error": "#fff7f6",
+              "surface-variant": "#e0e4de",
+              "inverse-primary": "#fee8cb",
+              "on-surface": "#2f3430",
+              "on-primary": "#fff6ee",
+              "primary-fixed": "#f5dfc3",
+              "surface-container-low": "#f4f4f0",
+              "on-tertiary": "#fff7f3",
+              "on-primary-container": "#5e503a",
+              background: "#faf9f6",
+              "on-error-container": "#742410",
+              "secondary-fixed-dim": "#efceba",
+              primary: "#6b5c46",
+              "on-secondary-fixed-variant": "#6f5747",
+              "error-container": "#fe8b70",
+              "secondary-fixed": "#fddcc7",
+              outline: "#777c77",
+              "primary-fixed-dim": "#e6d1b6",
+              "secondary-dim": "#654e3f",
+              "surface-container": "#edeeea",
+              "on-tertiary-container": "#5e5346",
+              "surface-container-highest": "#e0e4de",
+              "tertiary-dim": "#5c5144",
+              "on-surface-variant": "#5c605c",
+              surface: "#faf9f6",
+              error: "#9e422c",
+              tertiary: "#695d50",
+              "surface-tint": "#6b5c46",
+              "surface-bright": "#faf9f6",
+              "on-tertiary-fixed": "#4b4135",
+              "on-secondary-container": "#644d3d",
+              "on-primary-fixed": "#4b3d29",
+              "tertiary-container": "#f6e6d4",
+              "secondary-container": "#fddcc7",
+              "primary-container": "#f5dfc3",
+              "surface-container-high": "#e6e9e4",
+              "surface-dim": "#d6dbd5",
+              "primary-dim": "#5f503b",
+              "on-primary-fixed-variant": "#685943",
+              "on-secondary-fixed": "#503b2c",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#9d9d9a",
+              "on-secondary": "#fff7f4",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              display: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .editorial-shadow {
+        box-shadow: 0 24px 40px rgba(47, 52, 48, 0.04);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background">
+    <!-- SideNavBar Anchor -->
+    <aside
+      class="h-screen w-64 flex flex-col fixed left-0 top-0 bg-[#edeeea] dark:bg-stone-900 z-50"
+    >
+      <div class="flex flex-col h-full py-8">
+        <div class="px-8 mb-12">
+          <h1
+            class="font-['Noto_Serif'] text-2xl italic text-[#2f3430] dark:text-stone-100"
+          >
+            The Gallery
+          </h1>
+          <p
+            class="font-['Manrope'] font-medium tracking-wide uppercase text-[11px] text-[#6b5c46]/60"
+          >
+            Admin Console
+          </p>
+        </div>
+        <nav class="flex-1 space-y-1">
+          <!-- Dashboard -->
+          <a
+            class="flex items-center text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30 group"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined mr-4 scale-90 group-hover:scale-100 transition-transform"
+              data-icon="dashboard"
+              >dashboard</span
+            >
+            Dashboard
+          </a>
+          <!-- Artisans -->
+          <a
+            class="flex items-center text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30 group"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined mr-4 scale-90 group-hover:scale-100 transition-transform"
+              data-icon="palette"
+              >palette</span
+            >
+            Artisans
+          </a>
+          <!-- Collections -->
+          <a
+            class="flex items-center text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30 group"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined mr-4 scale-90 group-hover:scale-100 transition-transform"
+              data-icon="grid_view"
+              >grid_view</span
+            >
+            Collections
+          </a>
+          <!-- Products -->
+          <a
+            class="flex items-center text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30 group"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined mr-4 scale-90 group-hover:scale-100 transition-transform"
+              data-icon="inventory_2"
+              >inventory_2</span
+            >
+            Products
+          </a>
+          <!-- Orders -->
+          <a
+            class="flex items-center text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30 group"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined mr-4 scale-90 group-hover:scale-100 transition-transform"
+              data-icon="shopping_cart"
+              >shopping_cart</span
+            >
+            Orders
+          </a>
+          <!-- Customers (ACTIVE) -->
+          <a
+            class="flex items-center text-[#6b5c46] font-bold bg-[#faf9f6]/50 dark:bg-stone-800/50 rounded-l-full ml-4 pl-4 py-3 font-['Manrope'] tracking-wide uppercase text-[11px]"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined mr-4"
+              data-icon="group"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >group</span
+            >
+            Customers
+          </a>
+          <!-- Transactions -->
+          <a
+            class="flex items-center text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30 group"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined mr-4 scale-90 group-hover:scale-100 transition-transform"
+              data-icon="payments"
+              >payments</span
+            >
+            Transactions
+          </a>
+          <!-- Settings -->
+          <a
+            class="flex items-center text-[#2f3430]/60 dark:text-stone-400/60 hover:text-[#2f3430] dark:hover:text-stone-200 px-8 py-3 transition-colors font-['Manrope'] font-medium tracking-wide uppercase text-[11px] hover:bg-[#faf9f6]/30 group"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined mr-4 scale-90 group-hover:scale-100 transition-transform"
+              data-icon="settings"
+              >settings</span
+            >
+            Settings
+          </a>
+        </nav>
+        <div class="px-8 mt-auto pt-8">
+          <div class="flex items-center space-x-3">
+            <img
+              alt="Curator Profile"
+              class="w-8 h-8 rounded-full object-cover grayscale opacity-80"
+              data-alt="portrait of a professional creative director in a minimalist studio setting with soft natural window lighting"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaPjgiUFI3jNBHXtK1lOymViqk0zWtfGWJdZtHrWK6529pCYJr357Y1sPsg63Ca58WAew69xEi6C9TywXDOYZ-R7NZeIU7yUGRmsG0LEXmtkCdxFHu9SSONKd9Y8dl9RndsFQiINfGYQrvM4RENhzldkQwSgyA2JvwsQiMD-FZFu0Xpe771hYhhzbdVoj2a8ZVWx8ap_q8_cM0BvGy57cmpgDOv6wvRI5ojIr6J8AuHPEVFZxCW9l4XWbVB6rL53FPG38SSlct90k"
+            />
+            <div>
+              <p
+                class="text-[10px] font-bold tracking-widest uppercase opacity-40"
+              >
+                Curator
+              </p>
+              <p class="text-xs font-semibold">Julian V.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <main class="ml-64 min-h-screen">
+      <!-- TopAppBar Anchor -->
+      <header
+        class="w-full h-16 sticky top-0 z-40 bg-[#faf9f6]/80 dark:bg-stone-950/80 backdrop-blur-md flex justify-between items-center px-12"
+      >
+        <div class="flex items-center flex-1">
+          <div class="relative w-64">
+            <span
+              class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-on-surface/40 text-sm"
+              data-icon="search"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 pl-7 text-sm font-['Manrope'] placeholder:text-on-surface/30 w-full"
+              placeholder="Find a collector..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center space-x-2">
+          <span
+            class="font-['Noto_Serif'] font-bold text-[#2f3430] dark:text-stone-100 text-lg mr-8"
+            >Dashboard Overview</span
+          >
+          <div class="flex items-center space-x-6 text-[#2f3430]/60">
+            <button class="hover:text-[#6b5c46] transition-colors">
+              <span class="material-symbols-outlined" data-icon="notifications"
+                >notifications</span
+              >
+            </button>
+            <button class="hover:text-[#6b5c46] transition-colors">
+              <span class="material-symbols-outlined" data-icon="history"
+                >history</span
+              >
+            </button>
+            <button class="hover:text-[#6b5c46] transition-colors">
+              <span class="material-symbols-outlined" data-icon="account_circle"
+                >account_circle</span
+              >
+            </button>
+          </div>
+        </div>
+      </header>
+      <!-- Page Content -->
+      <div class="px-12 py-12">
+        <!-- Header Section with Asymmetry -->
+        <div class="flex justify-between items-end mb-16 relative">
+          <div class="max-w-xl">
+            <span
+              class="font-['Manrope'] text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-4 block"
+              >CRM &amp; Patrons</span
+            >
+            <h2
+              class="font-['Noto_Serif'] text-5xl tracking-tight text-on-background leading-tight"
+            >
+              Managing Our <br /><span class="italic font-normal"
+                >Global Collectors</span
+              >
+            </h2>
+          </div>
+          <div class="flex flex-col items-end gap-6">
+            <button
+              class="group flex items-center space-x-4 bg-primary text-on-primary px-8 py-4 rounded-lg editorial-shadow transition-all hover:bg-primary-dim active:scale-95"
+            >
+              <span
+                class="material-symbols-outlined text-lg"
+                data-icon="person_add"
+                >person_add</span
+              >
+              <span
+                class="font-['Manrope'] font-bold tracking-wider uppercase text-xs"
+                >Add New Customer</span
+              >
+            </button>
+            <p class="text-xs text-on-surface/50 font-medium">
+              Currently viewing 428 active patrons
+            </p>
+          </div>
+        </div>
+        <!-- Dashboard Stats Tonal Shift -->
+        <div class="grid grid-cols-4 gap-8 mb-20">
+          <div
+            class="bg-surface-container-low p-8 rounded-xl transition-all hover:bg-surface-container"
+          >
+            <p
+              class="font-['Manrope'] text-[10px] font-bold tracking-widest uppercase text-on-surface/40 mb-2"
+            >
+              Total Spend
+            </p>
+            <h3 class="font-['Noto_Serif'] text-2xl">$124,500</h3>
+          </div>
+          <div
+            class="bg-surface-container-low p-8 rounded-xl transition-all hover:bg-surface-container"
+          >
+            <p
+              class="font-['Manrope'] text-[10px] font-bold tracking-widest uppercase text-on-surface/40 mb-2"
+            >
+              Avg. Order Value
+            </p>
+            <h3 class="font-['Noto_Serif'] text-2xl">$1,240</h3>
+          </div>
+          <div
+            class="bg-surface-container-low p-8 rounded-xl transition-all hover:bg-surface-container"
+          >
+            <p
+              class="font-['Manrope'] text-[10px] font-bold tracking-widest uppercase text-on-surface/40 mb-2"
+            >
+              Retention Rate
+            </p>
+            <h3 class="font-['Noto_Serif'] text-2xl">84%</h3>
+          </div>
+          <div
+            class="bg-surface-container-low p-8 rounded-xl transition-all hover:bg-surface-container relative overflow-hidden group"
+          >
+            <div class="relative z-10">
+              <p
+                class="font-['Manrope'] text-[10px] font-bold tracking-widest uppercase text-on-surface/40 mb-2"
+              >
+                Top Region
+              </p>
+              <h3 class="font-['Noto_Serif'] text-2xl">Copenhagen</h3>
+            </div>
+            <div
+              class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform"
+            >
+              <span
+                class="material-symbols-outlined text-6xl"
+                data-icon="public"
+                >public</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Editorial Customer Table -->
+        <div class="space-y-4">
+          <!-- Table Header -->
+          <div
+            class="grid grid-cols-12 px-8 py-6 bg-surface-container text-on-surface/40 font-['Manrope'] text-[10px] font-bold tracking-[0.15em] uppercase rounded-t-xl"
+          >
+            <div class="col-span-4">Collector Details</div>
+            <div class="col-span-3">Status &amp; Loyalty</div>
+            <div class="col-span-2 text-right">Join Date</div>
+            <div class="col-span-2 text-right">Total Spend</div>
+            <div class="col-span-1 text-right">Action</div>
+          </div>
+          <!-- Table Rows -->
+          <div class="space-y-px">
+            <!-- Row 1 -->
+            <div
+              class="grid grid-cols-12 px-8 py-8 items-center transition-all bg-surface-container-lowest hover:bg-white editorial-shadow group cursor-pointer border-b border-transparent hover:border-primary/10"
+            >
+              <div class="col-span-4 flex items-center space-x-5">
+                <div
+                  class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    alt="Elena Rostova"
+                    class="w-full h-full object-cover"
+                    data-alt="Close up portrait of a woman with short dark hair in a neutral tone linen shirt with soft lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmquzlf6u8VCn_71l6Mv7TMkHWnQQqJJM6iEkBFu6_Y86xGJV8nRL8isW-zubVto3MqW1_BO9sc-XD4oQTGXBYsOeSsioCYws9JlLoa_QLJmlvfVsHoeSKpdAOpd4iDRW6pVQq-__1lYMwvCaoYrYT-E3bGKq6y-udIUCbLd5Ye-jWYlb6_xFX9Xywh-DXQXlOCgzzkzp03-Ea_cl65FZLpKHwZpyKLS0gKfTYHSU5xS9IqRRjv_eNarCJspXk2URe7CENTKkZFIU"
+                  />
+                </div>
+                <div>
+                  <h4
+                    class="font-['Noto_Serif'] text-lg font-semibold text-on-surface"
+                  >
+                    Elena Rostova
+                  </h4>
+                  <p class="text-xs text-on-surface/50 font-['Manrope']">
+                    elena.rostova@art-curate.com
+                  </p>
+                </div>
+              </div>
+              <div class="col-span-3">
+                <span
+                  class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold tracking-wider uppercase rounded-full"
+                  >Platinum Tier</span
+                >
+              </div>
+              <div class="col-span-2 text-right">
+                <p
+                  class="text-sm font-['Manrope'] font-medium text-on-surface/60"
+                >
+                  Oct 12, 2021
+                </p>
+              </div>
+              <div class="col-span-2 text-right">
+                <p class="text-sm font-bold text-primary">$18,420.00</p>
+              </div>
+              <div class="col-span-1 text-right">
+                <button
+                  class="material-symbols-outlined text-on-surface/20 hover:text-primary transition-colors"
+                  data-icon="edit"
+                >
+                  edit
+                </button>
+              </div>
+            </div>
+            <!-- Row 2 -->
+            <div
+              class="grid grid-cols-12 px-8 py-8 items-center transition-all bg-surface-container-lowest hover:bg-white editorial-shadow group cursor-pointer border-b border-transparent hover:border-primary/10"
+            >
+              <div class="col-span-4 flex items-center space-x-5">
+                <div
+                  class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    alt="Marcus Thorne"
+                    class="w-full h-full object-cover"
+                    data-alt="Portrait of a distinguished man with graying beard wearing a dark turtleneck against a neutral studio background"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjT9OHWcNxlvZk8-3KRQRb1jXnrRtob4uN6FajuSkw54EUdH6zn28HkGd_mVuwu-fHr3_aiT-aLb1OHiq-YAJ20j7XkO7ZJukoJIh3NXTFwRQFcZZ67yoh5-mgiL8N1oev27pYyGcpL8mbygxq2-Uf6wkgzb9yWHUkh4EfwWBycLPHIrjdHG8A-EH6pEm2VqDP5Vwp8RUXGCTZW-3apWBhN3nXMPIQfKsn7DRFqQPuJPlPCz-iSi7j6QaG1hA9oUes7imtAkwgiQU"
+                  />
+                </div>
+                <div>
+                  <h4
+                    class="font-['Noto_Serif'] text-lg font-semibold text-on-surface"
+                  >
+                    Marcus Thorne
+                  </h4>
+                  <p class="text-xs text-on-surface/50 font-['Manrope']">
+                    m.thorne@vanguard-intl.uk
+                  </p>
+                </div>
+              </div>
+              <div class="col-span-3">
+                <span
+                  class="px-3 py-1 bg-primary-container text-on-primary-container text-[10px] font-bold tracking-wider uppercase rounded-full"
+                  >Legacy Patron</span
+                >
+              </div>
+              <div class="col-span-2 text-right">
+                <p
+                  class="text-sm font-['Manrope'] font-medium text-on-surface/60"
+                >
+                  Jan 04, 2020
+                </p>
+              </div>
+              <div class="col-span-2 text-right">
+                <p class="text-sm font-bold text-primary">$42,150.00</p>
+              </div>
+              <div class="col-span-1 text-right">
+                <button
+                  class="material-symbols-outlined text-on-surface/20 hover:text-primary transition-colors"
+                  data-icon="edit"
+                >
+                  edit
+                </button>
+              </div>
+            </div>
+            <!-- Row 3 -->
+            <div
+              class="grid grid-cols-12 px-8 py-8 items-center transition-all bg-surface-container-lowest hover:bg-white editorial-shadow group cursor-pointer border-b border-transparent hover:border-primary/10"
+            >
+              <div class="col-span-4 flex items-center space-x-5">
+                <div
+                  class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    alt="Amara Diop"
+                    class="w-full h-full object-cover"
+                    data-alt="Confident woman with braided hair wearing an earth-toned blazer in a bright, modern interior"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzgzLcHwuFcAwaBFJ6OZ1LfPKuzMQJ41GWpkT2P_5GEXSdOe-HJty9IPUC8lttVt7VVyr8zQvGE5fIfhJeo8GysFMVCN8F-2Em2mZWzO69p-ojilCmnPLeIhJikuTgBeGzft-wZvzC6ajQ4GbEEBLAtMzyduG3_5BDpVW7z1niUSbkvg45WPMY08EoKfvUDxs11m6ym_tZIKpAc4qMUrfiERVt8Erx6mvY-sj8h2nJOaiQzTjwFHESrYc86M_VXrpuQS9g7H8qcfc"
+                  />
+                </div>
+                <div>
+                  <h4
+                    class="font-['Noto_Serif'] text-lg font-semibold text-on-surface"
+                  >
+                    Amara Diop
+                  </h4>
+                  <p class="text-xs text-on-surface/50 font-['Manrope']">
+                    amara.diop@designlab.fr
+                  </p>
+                </div>
+              </div>
+              <div class="col-span-3">
+                <span
+                  class="px-3 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold tracking-wider uppercase rounded-full"
+                  >New Collector</span
+                >
+              </div>
+              <div class="col-span-2 text-right">
+                <p
+                  class="text-sm font-['Manrope'] font-medium text-on-surface/60"
+                >
+                  Nov 28, 2023
+                </p>
+              </div>
+              <div class="col-span-2 text-right">
+                <p class="text-sm font-bold text-primary">$2,800.00</p>
+              </div>
+              <div class="col-span-1 text-right">
+                <button
+                  class="material-symbols-outlined text-on-surface/20 hover:text-primary transition-colors"
+                  data-icon="edit"
+                >
+                  edit
+                </button>
+              </div>
+            </div>
+            <!-- Row 4 -->
+            <div
+              class="grid grid-cols-12 px-8 py-8 items-center transition-all bg-surface-container-lowest hover:bg-white editorial-shadow group cursor-pointer border-b border-transparent hover:border-primary/10"
+            >
+              <div class="col-span-4 flex items-center space-x-5">
+                <div
+                  class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    alt="Sebastian Heiden"
+                    class="w-full h-full object-cover"
+                    data-alt="Young man with spectacles and a relaxed smile wearing a light-weight knit sweater, soft focused urban background"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWs3Pg0-aAhu4x3TL9M8cvFl3C4Tz-vo0y28QxU95JbrPQp0rLOWz4zGJZWuq21ZO0nmTsLEGX6S21fKYMhw5ktGh19mIprBFOx6y7gbgAJiNOCsuACXSPp6OPE5LvX2E1iemZhPP0q1KqVI_R6vVAr-tHgwIpwLphSEKOJJzrHChLmA91pEQUSG-32rdiqQe-SC8DyAM768uhRy2i4po9rQojgpaMxv8dW7yoByiJ1NGlo9wELTvlUGkzZW7ZAkOi9cj18_JHGhA"
+                  />
+                </div>
+                <div>
+                  <h4
+                    class="font-['Noto_Serif'] text-lg font-semibold text-on-surface"
+                  >
+                    Sebastian Heiden
+                  </h4>
+                  <p class="text-xs text-on-surface/50 font-['Manrope']">
+                    sheiden@berlin-ateliers.de
+                  </p>
+                </div>
+              </div>
+              <div class="col-span-3">
+                <span
+                  class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold tracking-wider uppercase rounded-full"
+                  >Standard</span
+                >
+              </div>
+              <div class="col-span-2 text-right">
+                <p
+                  class="text-sm font-['Manrope'] font-medium text-on-surface/60"
+                >
+                  Feb 15, 2022
+                </p>
+              </div>
+              <div class="col-span-2 text-right">
+                <p class="text-sm font-bold text-primary">$8,950.00</p>
+              </div>
+              <div class="col-span-1 text-right">
+                <button
+                  class="material-symbols-outlined text-on-surface/20 hover:text-primary transition-colors"
+                  data-icon="edit"
+                >
+                  edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination or "Show More" Tonal Anchor -->
+        <div class="mt-16 flex justify-center">
+          <button
+            class="font-['Manrope'] text-[10px] font-bold tracking-[0.25em] uppercase text-primary/40 hover:text-primary transition-colors flex flex-col items-center gap-2"
+          >
+            <span>Load Further Records</span>
+            <span class="material-symbols-outlined" data-icon="expand_more"
+              >expand_more</span
+            >
+          </button>
+        </div>
+      </div>
+      <!-- Decorative Elements for Tactile feel -->
+      <div
+        class="fixed bottom-0 right-0 w-64 h-64 pointer-events-none opacity-[0.03] select-none"
+      >
+        <span class="material-symbols-outlined text-[12rem]" data-icon="texture"
+          >texture</span
+        >
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Terra Form Studio | Admin Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-dim": "#5c1202",
+              "on-background": "#2f3430",
+              "inverse-surface": "#0d0f0d",
+              "on-tertiary-fixed-variant": "#695d50",
+              secondary: "#725a4a",
+              "tertiary-fixed-dim": "#e8d7c7",
+              "tertiary-fixed": "#f6e6d4",
+              "outline-variant": "#afb3ae",
+              "on-error": "#fff7f6",
+              "surface-variant": "#e0e4de",
+              "inverse-primary": "#fee8cb",
+              "on-surface": "#2f3430",
+              "on-primary": "#fff6ee",
+              "primary-fixed": "#f5dfc3",
+              "surface-container-low": "#f4f4f0",
+              "on-tertiary": "#fff7f3",
+              "on-primary-container": "#5e503a",
+              background: "#faf9f6",
+              "on-error-container": "#742410",
+              "secondary-fixed-dim": "#efceba",
+              primary: "#6b5c46",
+              "on-secondary-fixed-variant": "#6f5747",
+              "error-container": "#fe8b70",
+              "secondary-fixed": "#fddcc7",
+              outline: "#777c77",
+              "primary-fixed-dim": "#e6d1b6",
+              "secondary-dim": "#654e3f",
+              "surface-container": "#edeeea",
+              "on-tertiary-container": "#5e5346",
+              "surface-container-highest": "#e0e4de",
+              "tertiary-dim": "#5c5144",
+              "on-surface-variant": "#5c605c",
+              surface: "#faf9f6",
+              error: "#9e422c",
+              tertiary: "#695d50",
+              "surface-tint": "#6b5c46",
+              "surface-bright": "#faf9f6",
+              "on-tertiary-fixed": "#4b4135",
+              "on-secondary-container": "#644d3d",
+              "on-primary-fixed": "#4b3d29",
+              "tertiary-container": "#f6e6d4",
+              "secondary-container": "#fddcc7",
+              "primary-container": "#f5dfc3",
+              "surface-container-high": "#e6e9e4",
+              "surface-dim": "#d6dbd5",
+              "primary-dim": "#5f503b",
+              "on-primary-fixed-variant": "#685943",
+              "on-secondary-fixed": "#503b2c",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#9d9d9a",
+              "on-secondary": "#fff7f4",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              display: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+        background-color: #faf9f6;
+      }
+      .serif-text {
+        font-family: "Noto Serif", serif;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background min-h-screen flex items-center justify-center p-6 md:p-12"
+  >
+    <!-- Narrative Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none opacity-30">
+      <div
+        class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] rounded-full bg-surface-container blur-[120px]"
+      ></div>
+      <div
+        class="absolute bottom-[-5%] left-[-5%] w-[30vw] h-[30vw] rounded-full bg-primary-container/20 blur-[100px]"
+      ></div>
+    </div>
+    <!-- Login Shell -->
+    <main
+      class="relative w-full max-w-5xl grid md:grid-cols-12 bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(47,52,48,0.06)]"
+    >
+      <!-- Left Side: Editorial Art -->
+      <div
+        class="hidden md:flex md:col-span-6 relative items-center justify-center bg-surface-container overflow-hidden"
+      >
+        <div class="absolute inset-0 z-0">
+          <img
+            alt="Artisan ceramic vase"
+            class="w-full h-full object-cover"
+            data-alt="Close-up of a raw, textured ceramic vase on a light stone surface with elegant natural sunlight casting soft shadows"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuANKVSqI7guvaMpOJAMriRsYzjw5nsmr4gnb4Zijoj-cQhAFJ2v3QYK6Phe_aOUxFjO7OBuw8cx6wb4oVP9YHtpRzJLJ99eIijSUPKgWzXgWx7bgGdetGFwAeVSWMwOYkZx_ecYkSF_Y5wrOUORKGFzEz6XciDzRk9m8kTZeQum3nZz6TdMiuWzGu_WYYoXsAuzkpRpWS40nvvKyocBIPkzTIgDRWC1n1D7K7ggecHLO625fLJWmu306WgLheI0J_ZWNnbMpvHsJdk"
+          />
+          <div
+            class="absolute inset-0 bg-primary-dim/10 mix-blend-multiply"
+          ></div>
+        </div>
+        <div class="relative z-10 p-12 text-center">
+          <h2
+            class="serif-text text-4xl italic text-on-surface mb-4 leading-tight"
+          >
+            Terra Form Studio
+          </h2>
+          <div class="w-12 h-[1px] bg-primary/40 mx-auto mb-4"></div>
+          <p
+            class="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant"
+          >
+            The Curator's Entry
+          </p>
+        </div>
+      </div>
+      <!-- Right Side: Interaction Canvas -->
+      <div
+        class="col-span-12 md:col-span-6 flex flex-col justify-center p-8 md:p-16 lg:p-24 relative"
+      >
+        <div class="mb-12">
+          <h1
+            class="serif-text text-3xl text-on-background font-bold tracking-tight mb-2"
+          >
+            Welcome Back
+          </h1>
+          <p class="text-on-surface-variant text-sm">
+            Access the administrative gallery console.
+          </p>
+        </div>
+        <form class="space-y-8">
+          <!-- Input Group: Email -->
+          <div class="relative group">
+            <label
+              class="block font-label text-[11px] tracking-wider uppercase text-on-surface-variant mb-2"
+              for="email"
+              >Email Address</label
+            >
+            <input
+              class="w-full bg-surface-container-low border-0 border-b border-outline-variant/15 py-3 px-0 focus:ring-0 focus:border-primary transition-all duration-300 placeholder:text-on-surface-variant/30 text-on-surface"
+              id="email"
+              name="email"
+              placeholder="curator@terraform.com"
+              type="email"
+            />
+          </div>
+          <!-- Input Group: Password -->
+          <div class="relative group">
+            <div class="flex justify-between items-end mb-2">
+              <label
+                class="block font-label text-[11px] tracking-wider uppercase text-on-surface-variant"
+                for="password"
+                >Password</label
+              >
+              <a
+                class="text-[11px] font-label uppercase tracking-widest text-primary hover:text-primary-dim transition-colors"
+                href="#"
+                >Forgot?</a
+              >
+            </div>
+            <input
+              class="w-full bg-surface-container-low border-0 border-b border-outline-variant/15 py-3 px-0 focus:ring-0 focus:border-primary transition-all duration-300 placeholder:text-on-surface-variant/30 text-on-surface"
+              id="password"
+              name="password"
+              placeholder="••••••••"
+              type="password"
+            />
+          </div>
+          <!-- Action Group -->
+          <div class="pt-4 flex flex-col space-y-6">
+            <button
+              class="group relative flex items-center justify-center w-full bg-primary text-on-primary py-4 px-6 rounded-lg font-medium tracking-wide transition-all duration-300 hover:bg-primary-dim shadow-[0_8px_20px_-4px_rgba(107,92,70,0.2)] active:scale-[0.98]"
+              type="submit"
+            >
+              <span class="mr-2">Sign In</span>
+              <span
+                class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1"
+                data-icon="arrow_forward"
+                >arrow_forward</span
+              >
+            </button>
+            <div class="flex items-center justify-center space-x-4">
+              <span class="h-[1px] flex-grow bg-outline-variant/10"></span>
+              <span
+                class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/40"
+                >Studio Verification</span
+              >
+              <span class="h-[1px] flex-grow bg-outline-variant/10"></span>
+            </div>
+            <p
+              class="text-center text-[12px] text-on-surface-variant/60 leading-relaxed"
+            >
+              Access to this console is restricted to authorized studio
+              personnel. All interactions are logged.
+            </p>
+          </div>
+        </form>
+        <!-- Decorative Studio Mark -->
+        <div
+          class="absolute bottom-8 right-8 md:bottom-12 md:right-12 opacity-10"
+        >
+          <span
+            class="material-symbols-outlined text-6xl"
+            data-icon="pentagon"
+            style="font-variation-settings: &quot;FILL&quot; 0"
+            >pentagon</span
+          >
+        </div>
+      </div>
+    </main>
+    <!-- Global Footer Branding -->
+    <footer
+      class="fixed bottom-8 left-0 w-full text-center pointer-events-none"
+    >
+      <p
+        class="font-label text-[10px] tracking-[0.3em] uppercase text-on-surface-variant/30"
+      >
+        Terra Form Studio © 2024
+      </p>
+    </footer>
+  </body>
+</html>

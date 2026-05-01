@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Noto Serif", serif;
+  --font-display: "Noto Serif", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  /* Tactile Gallery Custom Colors */
+  --color-error-dim: #5c1202;
+  --color-on-background: #2f3430;
+  --color-inverse-surface: #0d0f0d;
+  --color-on-tertiary-fixed-variant: #695d50;
+  --color-secondary: #725a4a;
+  --color-tertiary-fixed-dim: #e8d7c7;
+  --color-tertiary-fixed: #f6e6d4;
+  --color-outline-variant: #afb3ae;
+  --color-on-error: #fff7f6;
+  --color-surface-variant: #e0e4de;
+  --color-inverse-primary: #fee8cb;
+  --color-on-surface: #2f3430;
+  --color-on-primary: #fff6ee;
+  --color-primary-fixed: #f5dfc3;
+  --color-surface-container-low: #f4f4f0;
+  --color-on-tertiary: #fff7f3;
+  --color-on-primary-container: #5e503a;
+  --color-background: #faf9f6;
+  --color-on-error-container: #742410;
+  --color-secondary-fixed-dim: #efceba;
+  --color-primary: #6b5c46;
+  --color-on-secondary-fixed-variant: #6f5747;
+  --color-error-container: #fe8b70;
+  --color-secondary-fixed: #fddcc7;
+  --color-outline: #777c77;
+  --color-primary-fixed-dim: #e6d1b6;
+  --color-secondary-dim: #654e3f;
+  --color-surface-container: #edeeea;
+  --color-on-tertiary-container: #5e5346;
+  --color-surface-container-highest: #e0e4de;
+  --color-tertiary-dim: #5c5144;
+  --color-on-surface-variant: #5c605c;
+  --color-surface: #faf9f6;
+  --color-error: #9e422c;
+  --color-tertiary: #695d50;
+  --color-surface-tint: #6b5c46;
+  --color-surface-bright: #faf9f6;
+  --color-on-tertiary-fixed: #4b4135;
+  --color-on-secondary-container: #644d3d;
+  --color-on-primary-fixed: #4b3d29;
+  --color-tertiary-container: #f6e6d4;
+  --color-secondary-container: #fddcc7;
+  --color-primary-container: #f5dfc3;
+  --color-surface-container-high: #e6e9e4;
+  --color-surface-dim: #d6dbd5;
+  --color-primary-dim: #5f503b;
+  --color-on-primary-fixed-variant: #685943;
+  --color-on-secondary-fixed: #503b2c;
+  --color-surface-container-lowest: #ffffff;
+  --color-inverse-on-surface: #9d9d9a;
+  --color-on-secondary: #fff7f4;
+
+  /* Legacy Tactile Gallery Names (for compatibility) */
+  --color-surface-warm: #efe7dd;
+  --color-primary-dark: #6f5d49;
+  --color-text-primary: #1f1a17;
+  --color-text-secondary: #6e6258;
+  --color-border: #d8cdc1;
+  --color-success: #4f7a5a;
+  --color-warning: #b07a3f;
+  --color-info: #6f7c8f;
+}

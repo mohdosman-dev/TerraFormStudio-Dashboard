@@ -1,0 +1,605 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Terra Form Admin | Homepage Editor</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      .serif-font {
+        font-family: "Noto Serif", serif;
+      }
+      /* Custom scrollbar for gallery aesthetic */
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f4f4f0;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #afb3ae;
+        border-radius: 10px;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f4f4f0",
+              "on-secondary": "#fff7f4",
+              error: "#9e422c",
+              "surface-tint": "#6b5c46",
+              "surface-container-high": "#e6e9e4",
+              "on-secondary-fixed": "#503b2c",
+              "surface-container-lowest": "#ffffff",
+              "on-primary": "#fff6ee",
+              "inverse-surface": "#0d0f0d",
+              "tertiary-fixed": "#f6e6d4",
+              "primary-dim": "#5f503b",
+              "error-dim": "#5c1202",
+              "primary-fixed-dim": "#e6d1b6",
+              "on-surface-variant": "#5c605c",
+              "outline-variant": "#afb3ae",
+              "surface-bright": "#faf9f6",
+              "on-secondary-fixed-variant": "#6f5747",
+              background: "#faf9f6",
+              "tertiary-container": "#f6e6d4",
+              "on-primary-container": "#5e503a",
+              "on-error-container": "#742410",
+              "surface-variant": "#e0e4de",
+              "surface-container": "#edeeea",
+              "surface-dim": "#d6dbd5",
+              "on-background": "#2f3430",
+              "inverse-on-surface": "#9d9d9a",
+              tertiary: "#695d50",
+              "secondary-fixed": "#fddcc7",
+              "on-tertiary": "#fff7f3",
+              "inverse-primary": "#fee8cb",
+              "on-surface": "#2f3430",
+              "tertiary-fixed-dim": "#e8d7c7",
+              "secondary-container": "#fddcc7",
+              outline: "#777c77",
+              "secondary-dim": "#654e3f",
+              "error-container": "#fe8b70",
+              "on-primary-fixed-variant": "#685943",
+              secondary: "#725a4a",
+              "on-secondary-container": "#644d3d",
+              "primary-container": "#f5dfc3",
+              "on-tertiary-container": "#5e5346",
+              "secondary-fixed-dim": "#efceba",
+              "primary-fixed": "#f5dfc3",
+              "on-tertiary-fixed": "#4b4135",
+              primary: "#6b5c46",
+              "tertiary-dim": "#5c5144",
+              "on-tertiary-fixed-variant": "#695d50",
+              "on-error": "#fff7f6",
+              surface: "#faf9f6",
+              "surface-container-highest": "#e0e4de",
+              "on-primary-fixed": "#4b3d29",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-background text-on-surface">
+    <!-- SideNavBar -->
+    <aside
+      class="h-screen w-64 fixed left-0 top-0 z-50 flex flex-col bg-surface-container-low shadow-[4px_0_24px_rgba(47,52,48,0.04)]"
+    >
+      <div class="flex flex-col py-8 px-6 space-y-8">
+        <div class="space-y-1">
+          <span class="font-['Noto_Serif'] text-xl italic text-primary block"
+            >The Gallery</span
+          >
+          <span
+            class="font-['Manrope'] text-[10px] tracking-widest uppercase font-medium text-on-surface-variant opacity-60"
+            >Admin Portal</span
+          >
+        </div>
+        <nav class="flex flex-col space-y-2">
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-on-surface-variant opacity-60 hover:bg-surface-container rounded-md transition-colors font-['Manrope'] text-sm tracking-wide uppercase font-medium"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="dashboard"
+              >dashboard</span
+            >
+            <span>Dashboard</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 bg-surface-container-lowest text-primary rounded-md shadow-sm font-['Manrope'] text-sm tracking-wide uppercase font-semibold"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="edit_note"
+              >edit_note</span
+            >
+            <span>Homepage Editor</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-on-surface-variant opacity-60 hover:bg-surface-container rounded-md transition-colors font-['Manrope'] text-sm tracking-wide uppercase font-medium"
+            href="#"
+          >
+            <span
+              class="material-symbols-outlined"
+              data-icon="auto_awesome_motion"
+              >auto_awesome_motion</span
+            >
+            <span>Collections</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-on-surface-variant opacity-60 hover:bg-surface-container rounded-md transition-colors font-['Manrope'] text-sm tracking-wide uppercase font-medium"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="brush"
+              >brush</span
+            >
+            <span>Artisans</span>
+          </a>
+          <a
+            class="flex items-center gap-3 px-4 py-3 text-on-surface-variant opacity-60 hover:bg-surface-container rounded-md transition-colors font-['Manrope'] text-sm tracking-wide uppercase font-medium"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="settings"
+              >settings</span
+            >
+            <span>Settings</span>
+          </a>
+        </nav>
+        <div class="pt-8">
+          <button
+            class="w-full py-4 px-4 bg-primary text-on-primary text-xs font-['Manrope'] tracking-[0.1em] uppercase font-bold rounded shadow-lg flex items-center justify-center gap-2 hover:bg-primary-dim transition-all active:scale-95"
+          >
+            View Live Store
+            <span
+              class="material-symbols-outlined text-sm"
+              data-icon="open_in_new"
+              >open_in_new</span
+            >
+          </button>
+        </div>
+      </div>
+    </aside>
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 right-0 left-64 h-16 z-40 bg-background/80 backdrop-blur-xl flex items-center justify-between px-8 w-full border-b border-outline-variant/10"
+    >
+      <div class="flex items-center gap-4">
+        <h1
+          class="font-['Noto_Serif'] text-lg tracking-tight font-bold text-primary"
+        >
+          Homepage Editor
+        </h1>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="relative group">
+          <span
+            class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors"
+            data-icon="notifications"
+            >notifications</span
+          >
+          <span
+            class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full border-2 border-background"
+          ></span>
+        </div>
+        <span
+          class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors"
+          data-icon="help_outline"
+          >help_outline</span
+        >
+        <div
+          class="flex items-center gap-3 pl-4 border-l border-outline-variant/20"
+        >
+          <img
+            alt="Curator Profile"
+            class="w-8 h-8 rounded-full object-cover grayscale"
+            data-alt="A professional portrait of a gallery curator with a focused, artistic expression. The lighting is soft and natural, coming from the side to create gentle shadows on her face. She is in a minimalist art studio environment with neutral tones and clean lines, reflecting a high-end, editorial aesthetic."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnBiFuAbjgnAXFKkIi5Uqi28vxZ-9f7iSnQ5aKZUxlW0eiCOfGFcXDG8puLofQGkaAgH7z5CFFAKtlIAluy2-uPrngFIplTHYwOlg4EX7sgnBJrcvoKGpozvDvgPM5urGEyM8Xahb_rhiNJZBSwagVvI2xOk6mMli4ldjIKEHEyEgNMRkSdvMQhKvEufmHinz8z2QDN6klQZqFjvrpVA3qn6e3WtulUWtmvC7FEwV4QFSD3neCl4dkazGrsUDjQRM1OE1msE_XA7A"
+          />
+          <span class="text-sm font-medium text-on-surface-variant"
+            >Curator Portal</span
+          >
+        </div>
+      </div>
+    </header>
+    <!-- Main Content Area -->
+    <main class="ml-64 pt-24 pb-32 px-12 max-w-7xl mx-auto">
+      <header class="mb-16">
+        <h2 class="text-4xl font-['Noto_Serif'] italic text-primary mb-2">
+          Homepage Configuration
+        </h2>
+        <p class="text-on-surface-variant opacity-70 tracking-wide font-light">
+          Curate the tactile experience of your storefront.
+        </p>
+      </header>
+      <div class="grid grid-cols-12 gap-10">
+        <!-- Section 1: Hero Section (Asymmetrical Layout) -->
+        <div class="col-span-12 lg:col-span-8">
+          <section
+            class="bg-surface-container-lowest p-10 rounded shadow-sm relative overflow-hidden group"
+          >
+            <div class="flex items-center gap-4 mb-8">
+              <span class="w-8 h-[1px] bg-primary"></span>
+              <h3
+                class="font-['Manrope'] text-xs font-bold uppercase tracking-[0.2em] text-primary"
+              >
+                Hero Section
+              </h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div class="space-y-6">
+                <div>
+                  <label
+                    class="block font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant mb-2"
+                    >Hero Title</label
+                  >
+                  <input
+                    class="w-full bg-transparent border-b border-outline-variant/30 py-2 focus:border-primary focus:outline-none font-['Noto_Serif'] text-2xl italic text-on-surface transition-colors"
+                    type="text"
+                    value="The Art of Earth"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant mb-2"
+                    >CTA Label</label
+                  >
+                  <input
+                    class="w-full bg-transparent border-b border-outline-variant/30 py-2 focus:border-primary focus:outline-none font-['Manrope'] text-sm tracking-wide text-on-surface transition-colors"
+                    type="text"
+                    value="Shop Collections"
+                  />
+                </div>
+              </div>
+              <div class="relative">
+                <label
+                  class="block font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant mb-4"
+                  >Hero Imagery</label
+                >
+                <div
+                  class="aspect-[4/5] bg-surface-container-low flex flex-col items-center justify-center border border-dashed border-outline-variant/40 rounded group/upload hover:bg-surface-container transition-all cursor-pointer"
+                >
+                  <img
+                    alt="Hero Placeholder"
+                    class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-multiply transition-opacity group-hover/upload:opacity-60"
+                    data-alt="A beautifully shot close-up of a handmade ceramic vase with an organic, wavy texture. The vessel sits on a rough stone surface against a soft, sun-drenched neutral wall. The lighting is ethereal and warm, capturing the fine details of the clay. The overall mood is peaceful, artistic, and deeply rooted in natural craftsmanship."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7t45hiU3WqMSLu9bEOAjaCRaa25hdpKTYHgXTcDGSv8TLaECo_5vRPbCHRjZh_JfbvIZORSo4go1w6kiJXJbGqmbNf8x3BWqlqts8F7dYx3zxQOowxO2xEzpQ581r5qHbkAWjJzYi9RbneLtMyc5LGQdMW5u5RmDGMmLfIMny19pRzwSqD4sWyXjtiHhSCVxAd15N4CMq1R1VTpQOGB_TNk0qse8aqnKyPQOBQNUd6ckIvAklpHPmp0M1gLZg3QlysZQmwW23aW8"
+                  />
+                  <span
+                    class="material-symbols-outlined text-primary mb-2"
+                    data-icon="add_photo_alternate"
+                    >add_photo_alternate</span
+                  >
+                  <span
+                    class="text-[10px] uppercase tracking-widest font-bold text-primary"
+                    >Replace Media</span
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Section 2: Artisan Spotlight -->
+        <div class="col-span-12 lg:col-span-4">
+          <section class="bg-surface-container-low p-8 rounded h-full">
+            <div class="flex items-center gap-4 mb-8">
+              <span class="w-6 h-[1px] bg-primary"></span>
+              <h3
+                class="font-['Manrope'] text-xs font-bold uppercase tracking-[0.2em] text-primary"
+              >
+                Artisan Spotlight
+              </h3>
+            </div>
+            <div class="space-y-8">
+              <div>
+                <label
+                  class="block font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant mb-3"
+                  >Featured Artisan</label
+                >
+                <div class="relative">
+                  <select
+                    class="w-full appearance-none bg-surface-container-lowest border-none py-4 px-4 rounded text-sm font-['Manrope'] text-on-surface shadow-sm focus:ring-1 focus:ring-primary/20"
+                  >
+                    <option>Elena Rossi</option>
+                    <option>Marcus Chen</option>
+                    <option>Sanae Tanaka</option>
+                  </select>
+                  <span
+                    class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-primary pointer-events-none"
+                    data-icon="unfold_more"
+                    >unfold_more</span
+                  >
+                </div>
+              </div>
+              <div>
+                <label
+                  class="block font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant mb-3"
+                  >Custom Spotlight Blurb</label
+                >
+                <textarea
+                  class="w-full bg-surface-container-lowest border-none p-4 rounded text-sm leading-relaxed font-['Noto_Serif'] italic text-on-surface shadow-sm focus:ring-1 focus:ring-primary/20 resize-none"
+                  rows="6"
+                >
+Working with the volcanic soil of Tuscany, Elena’s pieces capture the raw, untamed essence of the landscape she calls home...</textarea
+                >
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Section 3: Featured Collections -->
+        <div class="col-span-12">
+          <section class="bg-surface-container p-10 rounded shadow-sm">
+            <div class="flex items-center justify-between mb-12">
+              <div class="flex items-center gap-4">
+                <span class="w-8 h-[1px] bg-primary"></span>
+                <h3
+                  class="font-['Manrope'] text-xs font-bold uppercase tracking-[0.2em] text-primary"
+                >
+                  Featured Collections
+                </h3>
+              </div>
+              <span
+                class="text-[10px] uppercase tracking-widest text-on-surface-variant opacity-50"
+                >Drag to reorder visibility</span
+              >
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <!-- Tableware -->
+              <div
+                class="bg-surface-container-lowest p-6 rounded flex items-center justify-between group hover:shadow-md transition-shadow"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-16 h-16 rounded-full overflow-hidden bg-surface-container-low"
+                  >
+                    <img
+                      alt="Tableware"
+                      class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                      data-alt="A set of minimalist, matte-finished ceramic plates and bowls stacked neatly on a wooden table. The lighting is diffused and soft, highlighting the subtle color variations in the glaze. The aesthetic is clean, modern, and high-end, fitting a luxury tabletop collection."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjJV_Ys5y7DB-9iPmftCawyWvgsKFBI2c5Rd80Vz25fUFwm9qjmq6mVkNc-fgqWegAOX2MOHEen29-sUEjyoaiFLr0ccVsSOs-xwuy2nO3KmspZsbPeB59lQHasSnYSTnUsl4o7Xa0dH2cONLURDQuvL2VU5T86nDau2NGz_4541f_YfPt3awGoFe2qhpXh8R9_-vOJXkZkQdk39OafpjzF7PHBN1qkUYYhKm3u1we6n0BnM5JiHGOgqBltJJsJvp0nanLRhe1cuk"
+                    />
+                  </div>
+                  <div>
+                    <p class="font-['Noto_Serif'] text-lg text-on-surface">
+                      Tableware
+                    </p>
+                    <p
+                      class="font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant"
+                    >
+                      24 Items
+                    </p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked="" class="sr-only peer" type="checkbox" />
+                  <div
+                    class="w-11 h-6 bg-surface-container-high rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+                  ></div>
+                </label>
+              </div>
+              <!-- Vases -->
+              <div
+                class="bg-surface-container-lowest p-6 rounded flex items-center justify-between group hover:shadow-md transition-shadow"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-16 h-16 rounded-full overflow-hidden bg-surface-container-low"
+                  >
+                    <img
+                      alt="Vases"
+                      class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                      data-alt="A variety of sculptural ceramic vases with unique silhouettes arranged in an asymmetrical composition. The lighting is dramatic, coming from above to emphasize the forms and textures of the clay. The background is a soft, warm neutral, creating a gallery-like atmosphere for the stoneware pieces."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVLm715vakPtDMjFwxvE76f5EZoQgWPjfDMdxtAD8VRlg8ep1qx14VOCr-RHE8hucgMoie3lpZnhhIP7pfhlJcm-b8Aj63lmad_1zHuTxSarjKaXQIMp_rWmiqdsiws9iz9GS2yz9LmQqRloetbufC4_XiYMW-zxrHYgCJ1hhfMmfD0-dZ-CAAQGukSN-dbPU0Thg3H_1M-NyBwckmGXBQqOviSaoQ0Ej4X1Yom_VgrpWzYxR39suaV-PvUNFpXRi_de0-X2V25Hc"
+                    />
+                  </div>
+                  <div>
+                    <p class="font-['Noto_Serif'] text-lg text-on-surface">
+                      Vases
+                    </p>
+                    <p
+                      class="font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant"
+                    >
+                      12 Items
+                    </p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input checked="" class="sr-only peer" type="checkbox" />
+                  <div
+                    class="w-11 h-6 bg-surface-container-high rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+                  ></div>
+                </label>
+              </div>
+              <!-- Sculptures -->
+              <div
+                class="bg-surface-container-lowest p-6 rounded flex items-center justify-between group hover:shadow-md transition-shadow"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-16 h-16 rounded-full overflow-hidden bg-surface-container-low"
+                  >
+                    <img
+                      alt="Sculptures"
+                      class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
+                      data-alt="An avant-garde ceramic sculpture with intricate geometric patterns and a rough, unglazed finish. The piece is displayed in a minimalist gallery setting with soft spotlighting that accentuates its physical presence and tactile quality. The mood is sophisticated and intellectually provocative, celebrating experimental pottery."
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgrKxkN6uhgh0dANi80SRHRMBzmEQcS97IYk53fUiCXU9W1v-nW5wr7bM6k6PJon9d4bOIon2mH347keVvF4-0PC2-L5ouZBfH0TdEuAi5D66aMbtBwhzyR8TGpmTM8EVqkJGUKycy9Ev64zMfNOaAinq5vj6zlGwLUElrBRv9PP-LvZfxBkGYhhn62h6Ek3y8Gsvk6OrF2HyPH05nIqNLt7VAeVhuNAAWhOSvXTQu7m33dUHv78aJEaBxa_OnfjVkclHYVQWfmmk"
+                    />
+                  </div>
+                  <div>
+                    <p class="font-['Noto_Serif'] text-lg text-on-surface">
+                      Sculptures
+                    </p>
+                    <p
+                      class="font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant"
+                    >
+                      8 Items
+                    </p>
+                  </div>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input class="sr-only peer" type="checkbox" />
+                  <div
+                    class="w-11 h-6 bg-surface-container-high rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+                  ></div>
+                </label>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Section 4: New Arrivals Feed -->
+        <div class="col-span-12">
+          <section
+            class="bg-background border border-outline-variant/10 p-10 rounded"
+          >
+            <div
+              class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10"
+            >
+              <div class="flex items-center gap-4">
+                <span class="w-8 h-[1px] bg-primary"></span>
+                <h3
+                  class="font-['Manrope'] text-xs font-bold uppercase tracking-[0.2em] text-primary"
+                >
+                  New Arrivals Feed
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-8 items-center">
+                <div class="flex items-center gap-3">
+                  <label
+                    class="font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant"
+                    >Display Count</label
+                  >
+                  <div
+                    class="flex items-center gap-2 bg-surface-container px-3 py-1 rounded"
+                  >
+                    <button class="text-primary font-bold">-</button>
+                    <span class="font-['Noto_Serif'] text-sm px-2">8</span>
+                    <button class="text-primary font-bold">+</button>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <label
+                    class="font-['Manrope'] text-[10px] uppercase tracking-widest text-on-surface-variant"
+                    >Sort By</label
+                  >
+                  <select
+                    class="bg-transparent border-none text-sm font-['Manrope'] text-on-surface focus:ring-0 cursor-pointer"
+                  >
+                    <option>Release Date (Newest)</option>
+                    <option>Curator's Choice</option>
+                    <option>Price (High to Low)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+              <!-- Preview Grid (Subtle Placeholder feel) -->
+              <div
+                class="aspect-square bg-surface-container-low rounded flex items-center justify-center border border-outline-variant/5"
+              >
+                <span
+                  class="material-symbols-outlined text-outline-variant/30 text-4xl"
+                  data-icon="image"
+                  >image</span
+                >
+              </div>
+              <div
+                class="aspect-square bg-surface-container-low rounded flex items-center justify-center border border-outline-variant/5"
+              >
+                <span
+                  class="material-symbols-outlined text-outline-variant/30 text-4xl"
+                  data-icon="image"
+                  >image</span
+                >
+              </div>
+              <div
+                class="aspect-square bg-surface-container-low rounded flex items-center justify-center border border-outline-variant/5"
+              >
+                <span
+                  class="material-symbols-outlined text-outline-variant/30 text-4xl"
+                  data-icon="image"
+                  >image</span
+                >
+              </div>
+              <div
+                class="aspect-square bg-surface-container-low rounded flex items-center justify-center border border-outline-variant/5"
+              >
+                <span
+                  class="material-symbols-outlined text-outline-variant/30 text-4xl"
+                  data-icon="image"
+                  >image</span
+                >
+              </div>
+              <div
+                class="aspect-square bg-surface-container-low rounded flex items-center justify-center border border-outline-variant/5"
+              >
+                <span
+                  class="material-symbols-outlined text-outline-variant/30 text-4xl"
+                  data-icon="image"
+                  >image</span
+                >
+              </div>
+              <div
+                class="aspect-square bg-surface-container-low rounded flex items-center justify-center border border-outline-variant/5"
+              >
+                <span
+                  class="material-symbols-outlined text-outline-variant/30 text-4xl"
+                  data-icon="image"
+                  >image</span
+                >
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <!-- Global Actions Footer (Floating Style) -->
+    <div
+      class="fixed bottom-0 right-0 left-64 h-24 bg-background/90 backdrop-blur-xl z-40 px-12 flex items-center justify-end gap-6 border-t border-outline-variant/5"
+    >
+      <button
+        class="px-8 py-3 font-['Manrope'] text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors"
+      >
+        Discard
+      </button>
+      <button
+        class="px-10 py-4 bg-primary text-on-primary font-['Manrope'] text-xs font-bold uppercase tracking-[0.2em] rounded-md shadow-[0_10px_30px_rgba(107,92,70,0.2)] hover:bg-primary-dim transition-all active:scale-95"
+      >
+        Save Changes
+      </button>
+    </div>
+  </body>
+</html>

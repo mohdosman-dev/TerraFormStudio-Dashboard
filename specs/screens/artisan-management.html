@@ -1,0 +1,765 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Artisans Management - Terra Form Studio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#f5dfc3",
+              error: "#9e422c",
+              "inverse-surface": "#0d0f0d",
+              "inverse-primary": "#fee8cb",
+              "primary-container": "#f5dfc3",
+              "on-primary": "#fff6ee",
+              background: "#faf9f6",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed-dim": "#e8d7c7",
+              surface: "#faf9f6",
+              "secondary-fixed": "#fddcc7",
+              "surface-container-high": "#e6e9e4",
+              "surface-container-low": "#f4f4f0",
+              "on-secondary-container": "#644d3d",
+              "surface-dim": "#d6dbd5",
+              "surface-bright": "#faf9f6",
+              "on-primary-container": "#5e503a",
+              "tertiary-fixed": "#f6e6d4",
+              outline: "#777c77",
+              "on-primary-fixed": "#4b3d29",
+              "surface-tint": "#6b5c46",
+              "primary-dim": "#5f503b",
+              "secondary-dim": "#654e3f",
+              "secondary-container": "#fddcc7",
+              "outline-variant": "#afb3ae",
+              "inverse-on-surface": "#9d9d9a",
+              "error-dim": "#5c1202",
+              secondary: "#725a4a",
+              primary: "#6b5c46",
+              "on-tertiary-container": "#5e5346",
+              "on-tertiary-fixed-variant": "#695d50",
+              "tertiary-dim": "#5c5144",
+              "error-container": "#fe8b70",
+              "on-background": "#2f3430",
+              "on-secondary-fixed": "#503b2c",
+              "on-tertiary": "#fff7f3",
+              "on-error-container": "#742410",
+              "primary-fixed-dim": "#e6d1b6",
+              "on-error": "#fff7f6",
+              tertiary: "#695d50",
+              "on-tertiary-fixed": "#4b4135",
+              "on-surface": "#2f3430",
+              "on-primary-fixed-variant": "#685943",
+              "on-surface-variant": "#5c605c",
+              "surface-container": "#edeeea",
+              "tertiary-container": "#f6e6d4",
+              "secondary-fixed-dim": "#efceba",
+              "on-secondary-fixed-variant": "#6f5747",
+              "surface-container-highest": "#e0e4de",
+              "on-secondary": "#fff7f4",
+              "surface-variant": "#e0e4de",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              display: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+        background-color: #faf9f6;
+        color: #2f3430;
+      }
+      .editorial-shadow {
+        box-shadow: 0 4px 24px rgba(47, 52, 48, 0.04);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background">
+    <!-- SideNavBar (Authority: Shared Components JSON) -->
+    <nav
+      class="h-screen w-72 fixed left-0 top-0 overflow-y-auto bg-[#edeeea] dark:bg-stone-900 flex flex-col border-r-0 z-50"
+    >
+      <div class="px-8 py-10">
+        <h1 class="font-serif text-2xl text-[#2f3430] dark:text-stone-100">
+          The Tactile Gallery
+        </h1>
+        <p class="font-['Manrope'] text-sm tracking-wide text-stone-500">
+          Curator Portal
+        </p>
+      </div>
+      <div class="flex-1 flex flex-col">
+        <!-- Dashboard -->
+        <a
+          class="text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 font-['Manrope'] text-sm tracking-wide flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <!-- Artisans (ACTIVE) -->
+        <a
+          class="text-[#6b5c46] dark:text-white font-bold bg-[#faf9f6]/50 dark:bg-stone-800/50 rounded-l-full ml-4 pl-4 py-3 font-['Manrope'] text-sm tracking-wide flex items-center gap-3 scale-98 transition-all duration-300"
+          href="#"
+        >
+          <span class="material-symbols-outlined">palette</span>
+          <span>Artisans</span>
+        </a>
+        <!-- Collections -->
+        <a
+          class="text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 font-['Manrope'] text-sm tracking-wide flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined">collections</span>
+          <span>Collections</span>
+        </a>
+        <!-- Products -->
+        <a
+          class="text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 font-['Manrope'] text-sm tracking-wide flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <span>Products</span>
+        </a>
+        <!-- Orders -->
+        <a
+          class="text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 font-['Manrope'] text-sm tracking-wide flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined">receipt_long</span>
+          <span>Orders</span>
+        </a>
+        <!-- Customers -->
+        <a
+          class="text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 font-['Manrope'] text-sm tracking-wide flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined">group</span>
+          <span>Customers</span>
+        </a>
+        <!-- Transactions -->
+        <a
+          class="text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 font-['Manrope'] text-sm tracking-wide flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined">payments</span>
+          <span>Transactions</span>
+        </a>
+        <!-- Settings -->
+        <a
+          class="text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 font-['Manrope'] text-sm tracking-wide flex items-center gap-3"
+          href="#"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span>Settings</span>
+        </a>
+      </div>
+      <div class="px-8 py-10 mt-auto">
+        <button
+          class="w-full py-4 rounded-md bg-primary text-on-primary font-body text-sm font-semibold tracking-wide shadow-sm hover:opacity-90 transition-opacity"
+        >
+          View Live Gallery
+        </button>
+      </div>
+    </nav>
+    <!-- Main Content Canvas -->
+    <main class="ml-72 min-h-screen">
+      <!-- TopAppBar (Authority: Shared Components JSON) -->
+      <header
+        class="sticky top-0 right-0 z-40 bg-[#faf9f6]/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center w-full px-10 h-20 shadow-[0_4px_24px_rgba(47,52,48,0.04)]"
+      >
+        <div class="flex items-center gap-6">
+          <h2
+            class="font-serif text-xl font-medium text-[#2f3430] dark:text-stone-200 italic"
+          >
+            Admin Console
+          </h2>
+          <div class="relative">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant"
+              >search</span
+            >
+            <input
+              class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-1 focus:ring-primary"
+              placeholder="Search artisans..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="p-2 hover:bg-[#edeeea] dark:hover:bg-stone-800 rounded-full transition-colors text-[#6b5c46]"
+          >
+            <span class="material-symbols-outlined">notifications</span>
+          </button>
+          <button
+            class="p-2 hover:bg-[#edeeea] dark:hover:bg-stone-800 rounded-full transition-colors text-[#6b5c46]"
+          >
+            <span class="material-symbols-outlined">settings_suggest</span>
+          </button>
+          <div
+            class="h-10 w-10 rounded-full bg-surface-container-highest overflow-hidden ml-2"
+          >
+            <img
+              alt="Admin Avatar"
+              class="w-full h-full object-cover"
+              data-alt="professional portrait of a gallery curator in a neutral studio setting with soft natural light"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD6N-JRxDZbhhb74lkeM3tiGUTViLeTQFgVmaA4SopDnUe2m7I_qK5A09dMINLeXBjwopYwelPbsWeqYfNuWNuvc5yQwz5bqMGeuA-oLKiu_-Mr1TYNPLX6pXBNCRe8lakf99bfgRHtyquRqOG8AD9omfaR2bpDbp02n9o7XPkmMxlZhFXEEu1woIqN127s19zejwgQ-wJ5V4QmDbLLDAPpCJW-S2V7GiEBQVzYxJIsO9a_dPUUsHBwE9Xd1FSoDZIAzs32T3deEg"
+            />
+          </div>
+        </div>
+      </header>
+      <!-- Gallery Content Section -->
+      <div class="p-10">
+        <!-- Header Section -->
+        <div class="flex justify-between items-end mb-16">
+          <div class="max-w-2xl">
+            <span
+              class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-3 block"
+              >Terra Form Studio</span
+            >
+            <h1
+              class="font-display text-5xl font-light text-on-background leading-tight"
+            >
+              Artisans &amp; Makers
+            </h1>
+            <p
+              class="font-body text-lg text-on-surface-variant mt-4 leading-relaxed"
+            >
+              Oversee the independent creators who bring clay to life. Manage
+              profiles, track their inventory, and review gallery performance.
+            </p>
+          </div>
+          <button
+            class="bg-primary text-on-primary px-8 py-4 rounded-md flex items-center gap-2 hover:bg-primary-dim transition-all editorial-shadow"
+          >
+            <span class="material-symbols-outlined">add</span>
+            <span class="font-body font-semibold tracking-wide"
+              >Add New Artisan</span
+            >
+          </button>
+        </div>
+        <!-- Artisan Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Artisan Card 1 -->
+          <div
+            class="bg-surface-container-lowest p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1"
+          >
+            <div class="absolute top-0 right-0 p-4">
+              <button
+                class="text-outline-variant hover:text-primary transition-colors"
+              >
+                <span class="material-symbols-outlined">edit</span>
+              </button>
+            </div>
+            <div class="flex items-center gap-5 mb-8">
+              <div
+                class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-700"
+              >
+                <img
+                  alt="Artisan"
+                  class="w-full h-full object-cover"
+                  data-alt="close-up portrait of a woman potter with clay-dusted hands in a sunlit ceramic studio"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCn48RmToCqnl8Zw-OlJwHLVYhbnFQx9pcUUud1bdejaeBRqQLt2ktftE2e7J5mJX82aGlMw8ta4yNVCX2gKCke72UOx5s5O7UWJN9PyRPmrgxqZVTUGaA5CPj_nzARacpoVIZazozvTS5h4P0hT4db4g_VNx4jCU6kufNvwdkOd0XcSG8YdqeY7YGxd3dr0sW_7bje-PhjyXA-Bgg7ctJ1tCpenoF_tUZCOHuY2GX9cdZjPmjJr4i4jmxnZHBEVkjNy7SOqDlRZc"
+                />
+              </div>
+              <div>
+                <h3 class="font-display text-2xl text-on-background">
+                  Elena Moretti
+                </h3>
+                <div
+                  class="flex items-center gap-1 text-on-surface-variant text-sm mt-1"
+                >
+                  <span class="material-symbols-outlined text-xs"
+                    >location_on</span
+                  >
+                  <span>Tuscany, Italy</span>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="flex justify-between items-center bg-surface-container-low p-4 rounded-lg"
+              >
+                <div
+                  class="text-center flex-1 border-r border-outline-variant/20"
+                >
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant mb-1"
+                    >Products</span
+                  >
+                  <span class="font-display text-xl text-primary">24</span>
+                </div>
+                <div class="text-center flex-1">
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant mb-1"
+                    >Sales</span
+                  >
+                  <span class="font-display text-xl text-primary">$12,480</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label tracking-wider uppercase"
+                  >Stoneware</span
+                >
+                <span
+                  class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label tracking-wider uppercase"
+                  >Kintsugi</span
+                >
+              </div>
+              <button
+                class="w-full py-3 text-sm font-label uppercase tracking-widest border-b border-outline-variant/15 hover:border-primary text-on-surface-variant hover:text-primary transition-all"
+              >
+                Edit Profile
+              </button>
+            </div>
+          </div>
+          <!-- Artisan Card 2 (Asymmetric Image Placement) -->
+          <div
+            class="bg-surface-container-lowest p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1"
+          >
+            <div class="absolute top-0 right-0 p-4">
+              <button
+                class="text-outline-variant hover:text-primary transition-colors"
+              >
+                <span class="material-symbols-outlined">edit</span>
+              </button>
+            </div>
+            <div class="flex flex-col">
+              <div
+                class="w-full h-48 rounded-lg overflow-hidden mb-6 bg-surface-container"
+              >
+                <img
+                  alt="Studio"
+                  class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
+                  data-alt="minimalist pottery studio with shelves of unfinished ceramic vessels and soft shadows"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsTYQufJW-QoRt9Ngv0xTdyF4oQhO08pJhJWsVn6m34SoVq1H9aLFDzDI4Q5gFYoxfAnFMSaVntrLKjBqdBOfkxhbCU3C_YK4i0CigFMflHyJtaRWngF582Gx54rzKG0QLvh7RnH6cKibXR7xXXyjG79cWnUxaN7fX4Wv5sgbQWOMxTGS398oYBOLD4VA7egWAShkvyw12-rL_HxXD_-PDJ1bbpssoOF7sNyu7mZ6QXQmMeTUO0BiLt-auJLI5GrtwoHK8Ux9u8-w"
+                />
+              </div>
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <h3 class="font-display text-2xl text-on-background">
+                    Kaito Tanaka
+                  </h3>
+                  <div
+                    class="flex items-center gap-1 text-on-surface-variant text-sm mt-1"
+                  >
+                    <span class="material-symbols-outlined text-xs"
+                      >location_on</span
+                    >
+                    <span>Kyoto, Japan</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant"
+                    >Total Sales</span
+                  >
+                  <span class="font-display text-2xl text-primary"
+                    >$42,900</span
+                  >
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-surface-container-low p-4 rounded-lg">
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant mb-1"
+                    >Active Listings</span
+                  >
+                  <span class="font-display text-xl text-primary">56</span>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-lg">
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant mb-1"
+                    >Commission</span
+                  >
+                  <span class="font-display text-xl text-primary">15%</span>
+                </div>
+              </div>
+              <button
+                class="w-full py-3 text-sm font-label uppercase tracking-widest border-b border-outline-variant/15 hover:border-primary text-on-surface-variant hover:text-primary transition-all"
+              >
+                Edit Profile
+              </button>
+            </div>
+          </div>
+          <!-- Artisan Card 3 -->
+          <div
+            class="bg-surface-container-lowest p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1"
+          >
+            <div class="absolute top-0 right-0 p-4">
+              <button
+                class="text-outline-variant hover:text-primary transition-colors"
+              >
+                <span class="material-symbols-outlined">edit</span>
+              </button>
+            </div>
+            <div class="flex items-center gap-5 mb-8">
+              <div
+                class="w-20 h-20 rounded-full overflow-hidden flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-700"
+              >
+                <img
+                  alt="Artisan"
+                  class="w-full h-full object-cover"
+                  data-alt="overhead shot of a ceramicist painting delicate patterns on a white porcelain bowl"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrg7hXL7DrQ0Bmvlf5GqWpUWaydTElUR4WTkCZcG2MwiPKuHdrgNdtdfRpwrQ9Vphf8GKLQ_CQStG7hQBSTQZQ3EnaLNmZYts0Z_by9OgcWvxquPbeluIF4mIzm0DQ8N-dgFDTUA_NQC82gLY0yefqm9E9FsIbcK8RZ0UrFjnXYQhEg7NWqJ_vDAO-hUrgIx0418WaPxQhHG0H8C-CwqSk7QHF-22YzpJZnIPv0fPPdOADrBUJUeTlb9Fxfyr6D2srY7ICNWvUgjU"
+                />
+              </div>
+              <div>
+                <h3 class="font-display text-2xl text-on-background">
+                  Saffron Wells
+                </h3>
+                <div
+                  class="flex items-center gap-1 text-on-surface-variant text-sm mt-1"
+                >
+                  <span class="material-symbols-outlined text-xs"
+                    >location_on</span
+                  >
+                  <span>Portland, USA</span>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div
+                class="flex justify-between items-center bg-surface-container-low p-4 rounded-lg"
+              >
+                <div
+                  class="text-center flex-1 border-r border-outline-variant/20"
+                >
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant mb-1"
+                    >Products</span
+                  >
+                  <span class="font-display text-xl text-primary">12</span>
+                </div>
+                <div class="text-center flex-1">
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant mb-1"
+                    >Sales</span
+                  >
+                  <span class="font-display text-xl text-primary">$5,120</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label tracking-wider uppercase"
+                  >Minimalist</span
+                >
+                <span
+                  class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-label tracking-wider uppercase"
+                  >Porcelain</span
+                >
+              </div>
+              <button
+                class="w-full py-3 text-sm font-label uppercase tracking-widest border-b border-outline-variant/15 hover:border-primary text-on-surface-variant hover:text-primary transition-all"
+              >
+                Edit Profile
+              </button>
+            </div>
+          </div>
+          <!-- Artisan Card 4 (Horizontal Editorial Style) -->
+          <div
+            class="md:col-span-2 bg-surface-container-low p-8 flex flex-col md:flex-row gap-10 items-center overflow-hidden transition-all duration-500 hover:bg-surface-container group"
+          >
+            <div
+              class="w-full md:w-1/3 h-64 rounded-xl overflow-hidden relative"
+            >
+              <img
+                alt="Ceramics"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                data-alt="a curated collection of neutral stoneware vases of different heights arranged asymmetrically on a concrete ledge"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl8ruqC74ddmp_HsuJYaF-p96ht-kYsGF7X6JfvQ79VnWO7GT3qlOoUPlx7F9u2feQ9gfU3dCRNAoWUgft3DDMO_OjPaSau8bqcJbAh-WdxBuTDxpqEsKhNYjEhVQGZqGdxoAhrJw3j_GU2Ijl9fWhnJQdBHzwn-dRzRVI4X53Wv4RZRS-p8BMc8K-3A7_APhpJyNj3OP3fJtnWBDEfueqvjj8qk6JFnCosnezianVLgYz4NX916tkOQIMVCLYKDDz9BuJl9rENrU"
+              />
+              <div
+                class="absolute inset-0 bg-primary/10 mix-blend-overlay"
+              ></div>
+            </div>
+            <div class="flex-1">
+              <span
+                class="font-label text-xs uppercase tracking-widest text-primary mb-2 block"
+                >Featured Artisan</span
+              >
+              <h3 class="font-display text-3xl text-on-background mb-4">
+                Marcus Aurel
+              </h3>
+              <p class="font-body text-on-surface-variant mb-8 line-clamp-2">
+                Specializing in large-format architectural vessels inspired by
+                brutalist forms and organic erosion patterns found in desert
+                canyons.
+              </p>
+              <div class="grid grid-cols-3 gap-6 mb-8">
+                <div>
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant mb-1"
+                    >Location</span
+                  >
+                  <span class="font-body font-medium">Santa Fe, NM</span>
+                </div>
+                <div>
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant mb-1"
+                    >Products</span
+                  >
+                  <span class="font-body font-medium">8 Pieces</span>
+                </div>
+                <div>
+                  <span
+                    class="block text-xs font-label uppercase tracking-widest text-outline-variant mb-1"
+                    >Total Vol.</span
+                  >
+                  <span class="font-body font-medium">$18,700</span>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <button
+                  class="text-primary font-label uppercase text-sm tracking-widest border-b-2 border-primary pb-1 hover:text-primary-dim transition-colors"
+                >
+                  Edit Profile
+                </button>
+                <button
+                  class="text-on-surface-variant font-label uppercase text-sm tracking-widest pb-1 hover:text-on-background transition-colors"
+                >
+                  View Sales Report
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Quick Stats / Insights (Tonal Shift Only) -->
+          <div
+            class="bg-surface-container-highest p-8 rounded-lg flex flex-col justify-center"
+          >
+            <div class="mb-8">
+              <span
+                class="material-symbols-outlined text-primary text-4xl mb-4"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >insights</span
+              >
+              <h4 class="font-display text-xl mb-2">Network Growth</h4>
+              <p class="text-sm text-on-surface-variant">
+                Your artisan collective has grown by 12% this quarter.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="flex justify-between items-end">
+                <span class="text-xs font-label uppercase tracking-widest"
+                  >Active Makers</span
+                >
+                <span class="font-display text-2xl">48</span>
+              </div>
+              <div
+                class="w-full bg-surface-container-low h-1 rounded-full overflow-hidden"
+              >
+                <div class="bg-primary h-full w-3/4"></div>
+              </div>
+              <div class="flex justify-between items-end">
+                <span class="text-xs font-label uppercase tracking-widest"
+                  >Avg. Artisan Sales</span
+                >
+                <span class="font-display text-2xl">$4.2k</span>
+              </div>
+              <div
+                class="w-full bg-surface-container-low h-1 rounded-full overflow-hidden"
+              >
+                <div class="bg-primary h-full w-1/2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Detailed Table Section (Authority: Management Requirement) -->
+        <div class="mt-20">
+          <div
+            class="flex justify-between items-center mb-8 border-b border-outline-variant/10 pb-6"
+          >
+            <h2 class="font-display text-3xl">Inventory Distribution</h2>
+            <div class="flex gap-4">
+              <button
+                class="text-sm font-label uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >filter_list</span
+                >
+                Filter
+              </button>
+              <button
+                class="text-sm font-label uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-lg">download</span>
+                Export CSV
+              </button>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr
+                  class="text-xs font-label uppercase tracking-[0.2em] text-outline-variant"
+                >
+                  <th class="pb-6 font-normal">Artisan</th>
+                  <th class="pb-6 font-normal">Primary Studio</th>
+                  <th class="pb-6 font-normal">Product Count</th>
+                  <th class="pb-6 font-normal">Gross Revenue</th>
+                  <th class="pb-6 font-normal">Status</th>
+                  <th class="pb-6 font-normal text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody
+                class="font-body text-sm divide-y divide-outline-variant/5"
+              >
+                <tr
+                  class="group hover:bg-surface-container-low transition-colors"
+                >
+                  <td class="py-6">
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden"
+                      >
+                        <img
+                          alt="Artisan"
+                          class="w-full h-full object-cover"
+                          data-alt="profile photo of a young man with glasses in a wood-paneled room"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8AphNrz42f4gX9xrNPUexSsn9v2VrvsVWG9QyavjBOQaXcjqRCw0vLuaHs9cGLvJHexBTyymPy2K1PWwdX2ru3bigaAU7wtk6-p0zikWwDjeSwFyl1K_ikBBD1VUmQH-sbqG6q36cTgPrH_CcEkunsQu-Epb_0CPZJM5ac5k6jQ1eeG1lNQHRzdkLNsGC0IopwMO-FsprN5sO0D9QMBNYPZLnvxpaByokUvOSfqHqBuEqsG4oEhJBjy05yhHpqgokF8rwL_aXkro"
+                        />
+                      </div>
+                      <span class="font-semibold text-on-background"
+                        >Julian Vane</span
+                      >
+                    </div>
+                  </td>
+                  <td class="py-6 text-on-surface-variant">Berlin, DE</td>
+                  <td class="py-6 font-medium">32</td>
+                  <td class="py-6 font-display text-lg">$24,150.00</td>
+                  <td class="py-6">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-container text-on-secondary-container"
+                      >Active</span
+                    >
+                  </td>
+                  <td class="py-6 text-right">
+                    <button class="p-2 hover:text-primary">
+                      <span class="material-symbols-outlined">more_horiz</span>
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="group hover:bg-surface-container-low transition-colors"
+                >
+                  <td class="py-6">
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden"
+                      >
+                        <img
+                          alt="Artisan"
+                          class="w-full h-full object-cover"
+                          data-alt="profile photo of a woman smiling with warm sunlight filtering through leaves"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYs8gB0r8pwN0_o5IEwcjdyFjo_D1E3CZcD3Y66ZiDrmuOz7CNeynQp-tID9VFjojT2nzVqV7xXp9fvE7-lxflmr5OiadnT87C6BUDy4rc4LXJ1w27MReSdlVsBj1Dsc48BVOy7uWD43iEmoBnXmaefN2Zqgib7WPmyEkstJ4f3C1NgzmgHLUT_JvT1bzkGeJPyMfUkIP41ZFCHsgOaCfXriuEed7R2v_SxOksmeyzqcPhzFsBfQnVYFRP5_C-DGe3BcKYjTFNFb0"
+                        />
+                      </div>
+                      <span class="font-semibold text-on-background"
+                        >Maya Isak</span
+                      >
+                    </div>
+                  </td>
+                  <td class="py-6 text-on-surface-variant">Tel Aviv, IL</td>
+                  <td class="py-6 font-medium">18</td>
+                  <td class="py-6 font-display text-lg">$9,820.00</td>
+                  <td class="py-6">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-surface-container-highest text-on-surface-variant"
+                      >Restocking</span
+                    >
+                  </td>
+                  <td class="py-6 text-right">
+                    <button class="p-2 hover:text-primary">
+                      <span class="material-symbols-outlined">more_horiz</span>
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="group hover:bg-surface-container-low transition-colors"
+                >
+                  <td class="py-6">
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden"
+                      >
+                        <img
+                          alt="Artisan"
+                          class="w-full h-full object-cover"
+                          data-alt="profile photo of a creative professional in a navy blue shirt against a neutral background"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDColR4lPEoIC6lwCHedoYu-deIZQY9fmzW6nNJhp-prqx5-O25FVbkN8lcOfRx-cViU4XQURu08w4IvHyM_CBDSNHxGr19BmLZA0oBAjxxXhNO8eqJ50cNVifyHZrDTgQf9MB6OuFQok739Q_Y0_S9VwZJhgHGWb5mwrEuICFohqp2CJwHQZSlpVoirmcGl87gHsxFbwVNiCWXnFX5igA4qpXx42NSz5hVeB1G2UXlL2WeoFLJXbD4LvKi4aMmpi6mdhP5XEkq9Ks"
+                        />
+                      </div>
+                      <span class="font-semibold text-on-background"
+                        >Oliver Thatch</span
+                      >
+                    </div>
+                  </td>
+                  <td class="py-6 text-on-surface-variant">Cornwall, UK</td>
+                  <td class="py-6 font-medium">41</td>
+                  <td class="py-6 font-display text-lg">$31,500.00</td>
+                  <td class="py-6">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-secondary-container text-on-secondary-container"
+                      >Active</span
+                    >
+                  </td>
+                  <td class="py-6 text-right">
+                    <button class="p-2 hover:text-primary">
+                      <span class="material-symbols-outlined">more_horiz</span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Footer Decoration -->
+      <footer
+        class="mt-20 px-10 pb-10 flex justify-between items-center opacity-40"
+      >
+        <div class="font-serif italic text-lg text-primary">
+          Terra Form Admin / v2.4.0
+        </div>
+        <div class="flex gap-8 font-label text-xs tracking-widest uppercase">
+          <a class="hover:text-primary transition-colors" href="#"
+            >Documentation</a
+          >
+          <a class="hover:text-primary transition-colors" href="#">Support</a>
+          <a class="hover:text-primary transition-colors" href="#">Privacy</a>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

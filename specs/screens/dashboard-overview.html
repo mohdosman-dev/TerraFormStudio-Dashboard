@@ -1,0 +1,653 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Terra Form Studio | Curator Portal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#f5dfc3",
+              error: "#9e422c",
+              "inverse-surface": "#0d0f0d",
+              "inverse-primary": "#fee8cb",
+              "primary-container": "#f5dfc3",
+              "on-primary": "#fff6ee",
+              background: "#faf9f6",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed-dim": "#e8d7c7",
+              surface: "#faf9f6",
+              "secondary-fixed": "#fddcc7",
+              "surface-container-high": "#e6e9e4",
+              "surface-container-low": "#f4f4f0",
+              "on-secondary-container": "#644d3d",
+              "surface-dim": "#d6dbd5",
+              "surface-bright": "#faf9f6",
+              "on-primary-container": "#5e503a",
+              "tertiary-fixed": "#f6e6d4",
+              outline: "#777c77",
+              "on-primary-fixed": "#4b3d29",
+              "surface-tint": "#6b5c46",
+              "primary-dim": "#5f503b",
+              "secondary-dim": "#654e3f",
+              "secondary-container": "#fddcc7",
+              "outline-variant": "#afb3ae",
+              "inverse-on-surface": "#9d9d9a",
+              "error-dim": "#5c1202",
+              secondary: "#725a4a",
+              primary: "#6b5c46",
+              "on-tertiary-container": "#5e5346",
+              "on-tertiary-fixed-variant": "#695d50",
+              "tertiary-dim": "#5c5144",
+              "error-container": "#fe8b70",
+              "on-background": "#2f3430",
+              "on-secondary-fixed": "#503b2c",
+              "on-tertiary": "#fff7f3",
+              "on-error-container": "#742410",
+              "primary-fixed-dim": "#e6d1b6",
+              "on-error": "#fff7f6",
+              tertiary: "#695d50",
+              "on-tertiary-fixed": "#4b4135",
+              "on-surface": "#2f3430",
+              "on-primary-fixed-variant": "#685943",
+              "on-surface-variant": "#5c605c",
+              "surface-container": "#edeeea",
+              "tertiary-container": "#f6e6d4",
+              "secondary-fixed-dim": "#efceba",
+              "on-secondary-fixed-variant": "#6f5747",
+              "surface-container-highest": "#e0e4de",
+              "on-secondary": "#fff7f4",
+              "surface-variant": "#e0e4de",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              display: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      .serif-brand {
+        font-family: "Noto Serif", serif;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed"
+  >
+    <!-- SideNavBar Shell -->
+    <nav
+      class="h-screen w-72 fixed left-0 top-0 overflow-y-auto flex flex-col border-r-0 bg-[#edeeea] dark:bg-stone-900 font-['Manrope'] text-sm tracking-wide z-50"
+    >
+      <div class="px-8 py-10">
+        <span class="font-serif text-2xl text-[#2f3430] dark:text-stone-100"
+          >The Tactile Gallery</span
+        >
+        <p class="text-stone-500 mt-1">Curator Portal</p>
+      </div>
+      <div class="flex flex-col flex-grow">
+        <!-- Active Tab: Dashboard -->
+        <a
+          class="flex items-center gap-4 text-[#6b5c46] dark:text-white font-bold bg-[#faf9f6]/50 dark:bg-stone-800/50 rounded-l-full ml-4 pl-4 py-3 active:scale-[0.98] transition-all duration-300"
+          href="#"
+        >
+          <span class="material-symbols-outlined">dashboard</span>
+          Dashboard
+        </a>
+        <a
+          class="flex items-center gap-4 text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50"
+          href="#"
+        >
+          <span class="material-symbols-outlined">palette</span>
+          Artisans
+        </a>
+        <a
+          class="flex items-center gap-4 text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50"
+          href="#"
+        >
+          <span class="material-symbols-outlined">collections</span>
+          Collections
+        </a>
+        <a
+          class="flex items-center gap-4 text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50"
+          href="#"
+        >
+          <span class="material-symbols-outlined">shopping_bag</span>
+          Products
+        </a>
+        <a
+          class="flex items-center gap-4 text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50"
+          href="#"
+        >
+          <span class="material-symbols-outlined">receipt_long</span>
+          Orders
+        </a>
+        <a
+          class="flex items-center gap-4 text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50"
+          href="#"
+        >
+          <span class="material-symbols-outlined">group</span>
+          Customers
+        </a>
+        <a
+          class="flex items-center gap-4 text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50"
+          href="#"
+        >
+          <span class="material-symbols-outlined">payments</span>
+          Transactions
+        </a>
+        <a
+          class="flex items-center gap-4 text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50"
+          href="#"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </a>
+      </div>
+      <div class="p-8 mt-auto">
+        <button
+          class="w-full py-4 bg-primary text-on-primary rounded-xl font-medium shadow-lg hover:shadow-xl transition-all"
+        >
+          View Live Gallery
+        </button>
+      </div>
+    </nav>
+    <!-- TopAppBar Shell -->
+    <header
+      class="sticky top-0 right-0 z-40 bg-[#faf9f6]/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-[0_4px_24px_rgba(47,52,48,0.04)] flex justify-between items-center w-[calc(100%-18rem)] ml-72 px-10 h-20"
+    >
+      <div class="flex items-center gap-6 w-1/2">
+        <div class="relative w-full max-w-md">
+          <span
+            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"
+            >search</span
+          >
+          <input
+            class="w-full bg-surface-container-low border-none rounded-full pl-12 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary"
+            placeholder="Search orders, artisans..."
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2">
+          <button
+            class="p-2 hover:bg-[#edeeea] dark:hover:bg-stone-800 rounded-full transition-colors relative"
+          >
+            <span class="material-symbols-outlined text-[#6b5c46]"
+              >notifications</span
+            >
+            <span
+              class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"
+            ></span>
+          </button>
+          <button
+            class="p-2 hover:bg-[#edeeea] dark:hover:bg-stone-800 rounded-full transition-colors"
+          >
+            <span class="material-symbols-outlined text-[#6b5c46]"
+              >settings_suggest</span
+            >
+          </button>
+        </div>
+        <div class="h-8 w-[1px] bg-outline-variant/20 mx-2"></div>
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <p class="text-xs font-bold text-on-surface">Elena Vance</p>
+            <p class="text-[10px] text-stone-500 uppercase tracking-tighter">
+              Lead Curator
+            </p>
+          </div>
+          <img
+            alt="Admin Avatar"
+            class="w-10 h-10 rounded-full object-cover grayscale"
+            data-alt="close-up portrait of a professional woman with a clean minimalist background in soft lighting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQHPEuO4SZeBWHzMJnyWyp2MKhSYMvDykz9sbIYBRWvh0a1szDp2aZzmZktoymwo3QT8nTvSHEre8gNhfeLHsxpF2mhAARpUSkfOXntduUykJnEr8JxWXv4YhLiQv3ykRS_qOC9DwbaDw-Czt6G_kJOYH7Qwz0E7be_wMRaqfnLvRGs1d2Wz3vC1nn5g_l1vBz-6uzzfcls9NuyGCz5YJj7ji_Ga2A_HVPR3ckWCUJKY2FcingPyIzNrEmSoiv78226Khc8-J_3DY"
+          />
+        </div>
+      </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="ml-72 p-10 bg-background min-h-[calc(100vh-5rem)]">
+      <!-- Welcome Section -->
+      <section class="mb-12">
+        <h1 class="text-4xl font-headline italic text-on-background mb-2">
+          Welcome back, Elena.
+        </h1>
+        <p class="font-body text-stone-500 max-w-2xl">
+          The kiln is firing and the gallery is alive. Here is your overview for
+          today, October 24th.
+        </p>
+      </section>
+      <!-- At a Glance Statistics (Bento Grid) -->
+      <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+        <div
+          class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-b-2 border-transparent hover:border-primary/20 transition-all group"
+        >
+          <div class="flex justify-between items-start mb-4">
+            <div
+              class="p-3 bg-primary-container rounded-lg text-on-primary-container"
+            >
+              <span class="material-symbols-outlined">payments</span>
+            </div>
+            <span
+              class="text-xs font-label text-green-600 font-bold bg-green-50 px-2 py-1 rounded-full"
+              >+12.5%</span
+            >
+          </div>
+          <h3
+            class="text-stone-500 text-sm font-label uppercase tracking-widest mb-1"
+          >
+            Total Revenue
+          </h3>
+          <p class="text-3xl font-headline text-on-background">$124,500</p>
+        </div>
+        <div
+          class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-b-2 border-transparent hover:border-primary/20 transition-all group"
+        >
+          <div class="flex justify-between items-start mb-4">
+            <div
+              class="p-3 bg-secondary-container rounded-lg text-on-secondary-container"
+            >
+              <span class="material-symbols-outlined">palette</span>
+            </div>
+            <span class="text-xs font-label text-stone-400 font-medium"
+              >Stable</span
+            >
+          </div>
+          <h3
+            class="text-stone-500 text-sm font-label uppercase tracking-widest mb-1"
+          >
+            Active Artisans
+          </h3>
+          <p class="text-3xl font-headline text-on-background">42</p>
+        </div>
+        <div
+          class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-b-2 border-transparent hover:border-primary/20 transition-all group"
+        >
+          <div class="flex justify-between items-start mb-4">
+            <div
+              class="p-3 bg-tertiary-container rounded-lg text-on-tertiary-container"
+            >
+              <span class="material-symbols-outlined">collections</span>
+            </div>
+            <span
+              class="text-xs font-label text-green-600 font-bold bg-green-50 px-2 py-1 rounded-full"
+              >+2 new</span
+            >
+          </div>
+          <h3
+            class="text-stone-500 text-sm font-label uppercase tracking-widest mb-1"
+          >
+            Total Collections
+          </h3>
+          <p class="text-3xl font-headline text-on-background">12</p>
+        </div>
+        <div
+          class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-b-2 border-transparent hover:border-primary/20 transition-all group"
+        >
+          <div class="flex justify-between items-start mb-4">
+            <div class="p-3 bg-error-container/20 rounded-lg text-error">
+              <span class="material-symbols-outlined">receipt_long</span>
+            </div>
+            <span class="text-xs font-label text-error font-bold"
+              >Action Req.</span
+            >
+          </div>
+          <h3
+            class="text-stone-500 text-sm font-label uppercase tracking-widest mb-1"
+          >
+            Pending Orders
+          </h3>
+          <p class="text-3xl font-headline text-on-background">18</p>
+        </div>
+      </section>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Revenue Overview Chart (Placeholder UI) -->
+        <div
+          class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-sm"
+        >
+          <div class="flex justify-between items-center mb-10">
+            <h2 class="text-xl font-headline italic">Revenue Overview</h2>
+            <div class="flex gap-2">
+              <button
+                class="text-xs font-label px-4 py-2 bg-surface-container rounded-full text-stone-600"
+              >
+                Last 6 Months
+              </button>
+              <button
+                class="text-xs font-label px-4 py-2 hover:bg-surface-container rounded-full text-stone-400 transition-colors"
+              >
+                Yearly
+              </button>
+            </div>
+          </div>
+          <div
+            class="relative h-64 w-full flex items-end justify-between gap-4 px-2"
+          >
+            <!-- Faux Line Chart Area -->
+            <div
+              class="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none opacity-10"
+            >
+              <div class="w-full h-[1px] bg-on-surface"></div>
+              <div class="w-full h-[1px] bg-on-surface"></div>
+              <div class="w-full h-[1px] bg-on-surface"></div>
+              <div class="w-full h-[1px] bg-on-surface"></div>
+            </div>
+            <!-- Chart Bars for visual texture -->
+            <div class="flex-1 flex flex-col items-center group">
+              <div
+                class="w-full bg-primary/10 rounded-t-lg transition-all duration-500 group-hover:bg-primary/20"
+                style="height: 40%"
+              ></div>
+              <span class="mt-4 text-[10px] uppercase font-label text-stone-400"
+                >May</span
+              >
+            </div>
+            <div class="flex-1 flex flex-col items-center group">
+              <div
+                class="w-full bg-primary/10 rounded-t-lg transition-all duration-500 group-hover:bg-primary/20"
+                style="height: 65%"
+              ></div>
+              <span class="mt-4 text-[10px] uppercase font-label text-stone-400"
+                >Jun</span
+              >
+            </div>
+            <div class="flex-1 flex flex-col items-center group">
+              <div
+                class="w-full bg-primary/10 rounded-t-lg transition-all duration-500 group-hover:bg-primary/20"
+                style="height: 55%"
+              ></div>
+              <span class="mt-4 text-[10px] uppercase font-label text-stone-400"
+                >Jul</span
+              >
+            </div>
+            <div class="flex-1 flex flex-col items-center group">
+              <div
+                class="w-full bg-primary/10 rounded-t-lg transition-all duration-500 group-hover:bg-primary/20"
+                style="height: 85%"
+              ></div>
+              <span class="mt-4 text-[10px] uppercase font-label text-stone-400"
+                >Aug</span
+              >
+            </div>
+            <div class="flex-1 flex flex-col items-center group">
+              <div
+                class="w-full bg-primary/10 rounded-t-lg transition-all duration-500 group-hover:bg-primary/20"
+                style="height: 70%"
+              ></div>
+              <span class="mt-4 text-[10px] uppercase font-label text-stone-400"
+                >Sep</span
+              >
+            </div>
+            <div class="flex-1 flex flex-col items-center group">
+              <div
+                class="w-full bg-primary rounded-t-lg shadow-lg"
+                style="height: 95%"
+              ></div>
+              <span
+                class="mt-4 text-[10px] uppercase font-label text-primary font-bold"
+                >Oct</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Spotlight Card -->
+        <div
+          class="bg-primary text-on-primary rounded-xl p-8 relative overflow-hidden group"
+        >
+          <div class="relative z-10">
+            <h2 class="text-xl font-headline italic mb-4">Artisan Spotlight</h2>
+            <p class="text-on-primary/70 text-sm mb-8 leading-relaxed">
+              Soren Kjeldsen's "Obsidian Drift" series has increased in demand
+              by 45% this month.
+            </p>
+            <button
+              class="bg-on-primary text-primary px-6 py-3 rounded-xl text-sm font-bold shadow-md hover:shadow-xl transition-all"
+            >
+              Review Collection
+            </button>
+          </div>
+          <!-- Decorative element -->
+          <div
+            class="absolute -right-10 -bottom-10 opacity-20 group-hover:rotate-12 transition-transform duration-700"
+          >
+            <span
+              class="material-symbols-outlined text-[160px]"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >palette</span
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Recent Orders Table -->
+      <section
+        class="mt-12 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden"
+      >
+        <div
+          class="p-8 border-b border-surface-container-low flex justify-between items-center"
+        >
+          <h2 class="text-xl font-headline italic">Recent Orders</h2>
+          <button
+            class="text-primary text-sm font-medium flex items-center gap-1 hover:gap-2 transition-all"
+          >
+            View all orders
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead class="bg-surface-container-low/50">
+              <tr>
+                <th
+                  class="px-8 py-4 text-[10px] uppercase tracking-widest font-label text-stone-400"
+                >
+                  Order ID
+                </th>
+                <th
+                  class="px-8 py-4 text-[10px] uppercase tracking-widest font-label text-stone-400"
+                >
+                  Artisan
+                </th>
+                <th
+                  class="px-8 py-4 text-[10px] uppercase tracking-widest font-label text-stone-400"
+                >
+                  Customer
+                </th>
+                <th
+                  class="px-8 py-4 text-[10px] uppercase tracking-widest font-label text-stone-400"
+                >
+                  Amount
+                </th>
+                <th
+                  class="px-8 py-4 text-[10px] uppercase tracking-widest font-label text-stone-400 text-right"
+                >
+                  Status
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-surface-container-low">
+              <tr
+                class="hover:bg-surface-container-low/20 transition-colors group"
+              >
+                <td class="px-8 py-5 text-sm font-medium text-on-background">
+                  #TF-98421
+                </td>
+                <td class="px-8 py-5 text-sm text-stone-600">Amara Okafor</td>
+                <td class="px-8 py-5 text-sm text-stone-600">
+                  Julian Casablancas
+                </td>
+                <td class="px-8 py-5 text-sm font-headline text-on-background">
+                  $1,250.00
+                </td>
+                <td class="px-8 py-5 text-right">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700"
+                  >
+                    <span class="w-1 h-1 bg-amber-700 rounded-full"></span>
+                    PENDING
+                  </span>
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-surface-container-low/20 transition-colors group"
+              >
+                <td class="px-8 py-5 text-sm font-medium text-on-background">
+                  #TF-98419
+                </td>
+                <td class="px-8 py-5 text-sm text-stone-600">Soren Kjeldsen</td>
+                <td class="px-8 py-5 text-sm text-stone-600">
+                  Marina Abramovic
+                </td>
+                <td class="px-8 py-5 text-sm font-headline text-on-background">
+                  $3,400.00
+                </td>
+                <td class="px-8 py-5 text-right">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-blue-50 text-blue-700"
+                  >
+                    <span class="w-1 h-1 bg-blue-700 rounded-full"></span>
+                    SHIPPED
+                  </span>
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-surface-container-low/20 transition-colors group"
+              >
+                <td class="px-8 py-5 text-sm font-medium text-on-background">
+                  #TF-98418
+                </td>
+                <td class="px-8 py-5 text-sm text-stone-600">Li Wei</td>
+                <td class="px-8 py-5 text-sm text-stone-600">Thom Yorke</td>
+                <td class="px-8 py-5 text-sm font-headline text-on-background">
+                  $850.00
+                </td>
+                <td class="px-8 py-5 text-right">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-green-50 text-green-700"
+                  >
+                    <span class="w-1 h-1 bg-green-700 rounded-full"></span>
+                    DELIVERED
+                  </span>
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-surface-container-low/20 transition-colors group"
+              >
+                <td class="px-8 py-5 text-sm font-medium text-on-background">
+                  #TF-98415
+                </td>
+                <td class="px-8 py-5 text-sm text-stone-600">Amara Okafor</td>
+                <td class="px-8 py-5 text-sm text-stone-600">
+                  Phoebe Bridgers
+                </td>
+                <td class="px-8 py-5 text-sm font-headline text-on-background">
+                  $420.00
+                </td>
+                <td class="px-8 py-5 text-right">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700"
+                  >
+                    <span class="w-1 h-1 bg-amber-700 rounded-full"></span>
+                    PENDING
+                  </span>
+                </td>
+              </tr>
+              <tr
+                class="hover:bg-surface-container-low/20 transition-colors group"
+              >
+                <td class="px-8 py-5 text-sm font-medium text-on-background">
+                  #TF-98412
+                </td>
+                <td class="px-8 py-5 text-sm text-stone-600">Soren Kjeldsen</td>
+                <td class="px-8 py-5 text-sm text-stone-600">James Turrell</td>
+                <td class="px-8 py-5 text-sm font-headline text-on-background">
+                  $6,200.00
+                </td>
+                <td class="px-8 py-5 text-right">
+                  <span
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold bg-green-50 text-green-700"
+                  >
+                    <span class="w-1 h-1 bg-green-700 rounded-full"></span>
+                    DELIVERED
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <!-- Aesthetic Footer Section (Editorial Touch) -->
+      <footer
+        class="mt-24 pt-12 border-t border-surface-container-low flex flex-col md:flex-row justify-between items-center gap-8 text-stone-400"
+      >
+        <div class="flex items-center gap-2">
+          <span class="font-serif italic text-lg text-stone-300"
+            >Terra Form Studio</span
+          >
+          <span class="text-[10px] uppercase tracking-tighter"
+            >— Modern Ceramics Archive</span
+          >
+        </div>
+        <div
+          class="flex gap-12 text-[10px] uppercase tracking-widest font-label"
+        >
+          <a class="hover:text-primary transition-colors" href="#"
+            >Internal Privacy Policy</a
+          >
+          <a class="hover:text-primary transition-colors" href="#"
+            >API Documentation</a
+          >
+          <a class="hover:text-primary transition-colors" href="#"
+            >Support Portal</a
+          >
+        </div>
+        <p class="text-[10px] tracking-tight">
+          System Status:
+          <span class="text-green-600 font-bold">ALL SYSTEMS OPERATIONAL</span>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,597 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Terra Form Studio | Admin Settings</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#f5dfc3",
+              error: "#9e422c",
+              "inverse-surface": "#0d0f0d",
+              "inverse-primary": "#fee8cb",
+              "primary-container": "#f5dfc3",
+              "on-primary": "#fff6ee",
+              background: "#faf9f6",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed-dim": "#e8d7c7",
+              surface: "#faf9f6",
+              "secondary-fixed": "#fddcc7",
+              "surface-container-high": "#e6e9e4",
+              "surface-container-low": "#f4f4f0",
+              "on-secondary-container": "#644d3d",
+              "surface-dim": "#d6dbd5",
+              "surface-bright": "#faf9f6",
+              "on-primary-container": "#5e503a",
+              "tertiary-fixed": "#f6e6d4",
+              outline: "#777c77",
+              "on-primary-fixed": "#4b3d29",
+              "surface-tint": "#6b5c46",
+              "primary-dim": "#5f503b",
+              "secondary-dim": "#654e3f",
+              "secondary-container": "#fddcc7",
+              "outline-variant": "#afb3ae",
+              "inverse-on-surface": "#9d9d9a",
+              "error-dim": "#5c1202",
+              secondary: "#725a4a",
+              primary: "#6b5c46",
+              "on-tertiary-container": "#5e5346",
+              "on-tertiary-fixed-variant": "#695d50",
+              "tertiary-dim": "#5c5144",
+              "error-container": "#fe8b70",
+              "on-background": "#2f3430",
+              "on-secondary-fixed": "#503b2c",
+              "on-tertiary": "#fff7f3",
+              "on-error-container": "#742410",
+              "primary-fixed-dim": "#e6d1b6",
+              "on-error": "#fff7f6",
+              tertiary: "#695d50",
+              "on-tertiary-fixed": "#4b4135",
+              "on-surface": "#2f3430",
+              "on-primary-fixed-variant": "#685943",
+              "on-surface-variant": "#5c605c",
+              "surface-container": "#edeeea",
+              "tertiary-container": "#f6e6d4",
+              "secondary-fixed-dim": "#efceba",
+              "on-secondary-fixed-variant": "#6f5747",
+              "surface-container-highest": "#e0e4de",
+              "on-secondary": "#fff7f4",
+              "surface-variant": "#e0e4de",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              display: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+        background-color: #faf9f6;
+      }
+      .serif-text {
+        font-family: "Noto Serif", serif;
+      }
+      .no-line-card {
+        transition: background-color 0.3s ease;
+      }
+      .no-line-card:hover {
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface">
+    <!-- SideNavBar (Shared Component) -->
+    <aside
+      class="h-screen w-72 fixed left-0 top-0 overflow-y-auto bg-[#edeeea] dark:bg-stone-900 flex flex-col border-r-0 z-50"
+    >
+      <div class="px-8 py-10">
+        <h1 class="font-serif text-2xl text-[#2f3430] dark:text-stone-100">
+          The Tactile Gallery
+        </h1>
+        <p
+          class="font-['Manrope'] text-sm tracking-wide text-stone-500 uppercase mt-1"
+        >
+          Curator Portal
+        </p>
+      </div>
+      <nav class="flex-1">
+        <ul class="space-y-1">
+          <li
+            class="flex items-center text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300"
+          >
+            <span class="material-symbols-outlined mr-4" data-icon="dashboard"
+              >dashboard</span
+            >
+            <span class="font-['Manrope'] text-sm tracking-wide"
+              >Dashboard</span
+            >
+          </li>
+          <li
+            class="flex items-center text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300"
+          >
+            <span class="material-symbols-outlined mr-4" data-icon="palette"
+              >palette</span
+            >
+            <span class="font-['Manrope'] text-sm tracking-wide">Artisans</span>
+          </li>
+          <li
+            class="flex items-center text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300"
+          >
+            <span class="material-symbols-outlined mr-4" data-icon="collections"
+              >collections</span
+            >
+            <span class="font-['Manrope'] text-sm tracking-wide"
+              >Collections</span
+            >
+          </li>
+          <li
+            class="flex items-center text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300"
+          >
+            <span
+              class="material-symbols-outlined mr-4"
+              data-icon="shopping_bag"
+              >shopping_bag</span
+            >
+            <span class="font-['Manrope'] text-sm tracking-wide">Products</span>
+          </li>
+          <li
+            class="flex items-center text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300"
+          >
+            <span
+              class="material-symbols-outlined mr-4"
+              data-icon="receipt_long"
+              >receipt_long</span
+            >
+            <span class="font-['Manrope'] text-sm tracking-wide">Orders</span>
+          </li>
+          <li
+            class="flex items-center text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300"
+          >
+            <span class="material-symbols-outlined mr-4" data-icon="group"
+              >group</span
+            >
+            <span class="font-['Manrope'] text-sm tracking-wide"
+              >Customers</span
+            >
+          </li>
+          <li
+            class="flex items-center text-stone-500 dark:text-stone-400 hover:text-[#6b5c46] px-8 py-3 transition-all duration-300"
+          >
+            <span class="material-symbols-outlined mr-4" data-icon="payments"
+              >payments</span
+            >
+            <span class="font-['Manrope'] text-sm tracking-wide"
+              >Transactions</span
+            >
+          </li>
+          <!-- ACTIVE TAB: Settings -->
+          <li
+            class="text-[#6b5c46] dark:text-white font-bold bg-[#faf9f6]/50 dark:bg-stone-800/50 rounded-l-full ml-4 pl-4 py-3 flex items-center"
+          >
+            <span class="material-symbols-outlined mr-4" data-icon="settings"
+              >settings</span
+            >
+            <span class="font-['Manrope'] text-sm tracking-wide">Settings</span>
+          </li>
+        </ul>
+      </nav>
+      <div class="p-8 mt-auto">
+        <button
+          class="w-full bg-[#6b5c46] text-[#fff6ee] py-3 rounded-xl font-['Manrope'] text-sm tracking-wider hover:opacity-90 transition-opacity"
+        >
+          View Live Gallery
+        </button>
+      </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="ml-72 min-h-screen">
+      <!-- TopAppBar (Shared Component) -->
+      <header
+        class="sticky top-0 right-0 z-40 bg-[#faf9f6]/80 backdrop-blur-xl flex justify-between items-center px-10 h-20 shadow-[0_4px_24px_rgba(47,52,48,0.04)]"
+      >
+        <div class="flex items-center space-x-6">
+          <span class="font-serif text-xl font-medium text-[#2f3430]"
+            >Admin Console</span
+          >
+          <div class="relative">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400"
+              data-icon="search"
+              >search</span
+            >
+            <input
+              class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-primary"
+              placeholder="Search configurations..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="p-2 hover:bg-[#edeeea] rounded-full transition-colors">
+            <span
+              class="material-symbols-outlined text-[#6b5c46]"
+              data-icon="notifications"
+              >notifications</span
+            >
+          </button>
+          <button class="p-2 hover:bg-[#edeeea] rounded-full transition-colors">
+            <span
+              class="material-symbols-outlined text-[#6b5c46]"
+              data-icon="settings_suggest"
+              >settings_suggest</span
+            >
+          </button>
+          <div
+            class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden ml-2"
+          >
+            <img
+              class="h-full w-full object-cover"
+              data-alt="close-up portrait of a refined curator in a minimalist art gallery setting"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSBQ514W9gf0yXm31DwMDjd0V_UrVyXJPe7NMH_oBF-fH8NQ8B0AxfcZI9Jqfe4vyuvyYajd8_OTbLNh3kz57zJNiexmNqrX20ifYj1s0CntFGT-BJcbVis2utS2YaFDozsU6KX28RC3nkAgHD36ScCCPQ1pZvu7P1XfT_255XFacd_VIggp2sNmG3C4iFo2JKd9RjLhYWFUFXdpyH1KBdxa_2_urh81hhR5NBx_4QLRfVIQwD43TXnp9il2n3AudSbjSGS7Z6gDM"
+            />
+          </div>
+        </div>
+      </header>
+      <div class="px-12 py-10 max-w-5xl">
+        <!-- Header Section -->
+        <div class="mb-12">
+          <h2 class="serif-text text-4xl text-on-surface mb-2">
+            Studio Configuration
+          </h2>
+          <p class="text-on-surface-variant font-light">
+            Fine-tune the operational essence of Terra Form Studio.
+          </p>
+        </div>
+        <!-- Tabs Navigation -->
+        <div class="flex space-x-12 mb-12 border-none">
+          <button
+            class="text-primary font-semibold border-b-2 border-primary pb-2 text-sm tracking-widest uppercase"
+          >
+            General
+          </button>
+          <button
+            class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 text-sm tracking-widest uppercase"
+          >
+            Payments
+          </button>
+          <button
+            class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 text-sm tracking-widest uppercase"
+          >
+            Legal
+          </button>
+          <button
+            class="text-on-surface-variant hover:text-on-surface transition-colors pb-2 text-sm tracking-widest uppercase"
+          >
+            Communication
+          </button>
+        </div>
+        <!-- Settings Content Container -->
+        <div class="space-y-16">
+          <!-- General Section -->
+          <section
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
+            id="general"
+          >
+            <div>
+              <h3 class="serif-text text-xl mb-2">General Defaults</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Global settings for localization and marketplace presence.
+              </p>
+            </div>
+            <div
+              class="md:col-span-2 bg-surface-container-low p-10 rounded-xl space-y-6"
+            >
+              <div>
+                <label
+                  class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-3"
+                  >Default Currency</label
+                >
+                <div class="grid grid-cols-3 gap-4">
+                  <button
+                    class="bg-surface-container-lowest border-b-2 border-primary p-4 text-center rounded-lg shadow-sm"
+                  >
+                    <span class="block text-lg font-bold">USD</span>
+                    <span class="text-xs text-on-surface-variant"
+                      >US Dollar</span
+                    >
+                  </button>
+                  <button
+                    class="bg-surface-container p-4 text-center rounded-lg hover:bg-surface-container-highest transition-colors"
+                  >
+                    <span class="block text-lg font-bold">EUR</span>
+                    <span class="text-xs text-on-surface-variant">Euro</span>
+                  </button>
+                  <button
+                    class="bg-surface-container p-4 text-center rounded-lg hover:bg-surface-container-highest transition-colors"
+                  >
+                    <span class="block text-lg font-bold">GBP</span>
+                    <span class="text-xs text-on-surface-variant"
+                      >Pound Sterling</span
+                    >
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Payments Section -->
+          <section
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
+            id="payments"
+          >
+            <div>
+              <h3 class="serif-text text-xl mb-2">Payment Gateways</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Secure transaction processing and wallet integrations.
+              </p>
+            </div>
+            <div class="md:col-span-2 space-y-4">
+              <div
+                class="flex items-center justify-between bg-surface-container-lowest p-6 rounded-xl shadow-sm border-b border-outline-variant/10"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-primary"
+                      data-icon="credit_card"
+                      >credit_card</span
+                    >
+                  </div>
+                  <div>
+                    <p class="font-bold">Stripe</p>
+                    <p class="text-xs text-on-surface-variant">
+                      Connected: live_...4k92
+                    </p>
+                  </div>
+                </div>
+                <span
+                  class="px-3 py-1 bg-green-100 text-green-800 text-[10px] font-bold uppercase tracking-widest rounded-full"
+                  >Active</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-highest transition-all"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-stone-400"
+                      data-icon="account_balance_wallet"
+                      >account_balance_wallet</span
+                    >
+                  </div>
+                  <div>
+                    <p class="font-bold">PayPal</p>
+                    <p class="text-xs text-on-surface-variant">
+                      Not configured
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="text-primary font-bold text-xs uppercase tracking-widest"
+                >
+                  Connect
+                </button>
+              </div>
+              <div
+                class="flex items-center justify-between bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-highest transition-all"
+              >
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-stone-400"
+                      data-icon="apple"
+                      >ios</span
+                    >
+                  </div>
+                  <div>
+                    <p class="font-bold">Apple Pay</p>
+                    <p class="text-xs text-on-surface-variant">
+                      Requires domain verification
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="text-primary font-bold text-xs uppercase tracking-widest"
+                >
+                  Verify
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- Legal Section -->
+          <section
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
+            id="legal"
+          >
+            <div>
+              <h3 class="serif-text text-xl mb-2">Legal Agreements</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Policy updates for transparency and artisan protection.
+              </p>
+            </div>
+            <div class="md:col-span-2 space-y-8">
+              <div class="group">
+                <label
+                  class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-3"
+                  >Terms &amp; Conditions</label
+                >
+                <textarea
+                  class="w-full bg-surface-container-low border-b border-outline-variant/20 border-t-0 border-x-0 focus:ring-0 focus:border-primary px-4 py-4 rounded-t-lg font-serif italic text-on-surface-variant resize-none"
+                  placeholder="Enter terms of service..."
+                  rows="4"
+                >
+Terra Form Studio provides artisan ceramics under the condition that each piece is recognized as unique with minor variations in glaze and form...</textarea
+                >
+                <p class="text-[10px] text-stone-400 mt-2 italic text-right">
+                  Last updated: October 12, 2023
+                </p>
+              </div>
+              <div class="group">
+                <label
+                  class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-3"
+                  >Privacy Policy</label
+                >
+                <textarea
+                  class="w-full bg-surface-container-low border-b border-outline-variant/20 border-t-0 border-x-0 focus:ring-0 focus:border-primary px-4 py-4 rounded-t-lg font-serif italic text-on-surface-variant resize-none"
+                  placeholder="Enter privacy policy..."
+                  rows="4"
+                >
+We respect the craft and your privacy. Data collected is solely for the fulfillment of orders and curator newsletter delivery...</textarea
+                >
+                <p class="text-[10px] text-stone-400 mt-2 italic text-right">
+                  Last updated: January 04, 2024
+                </p>
+              </div>
+            </div>
+          </section>
+          <!-- Communication Section -->
+          <section
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start pb-20"
+            id="communication"
+          >
+            <div>
+              <h3 class="serif-text text-xl mb-2">Communication</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Automated touchpoints for the customer journey.
+              </p>
+            </div>
+            <div class="md:col-span-2 grid grid-cols-1 gap-4">
+              <div
+                class="group relative overflow-hidden bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(47,52,48,0.04)] border-b border-outline-variant/10"
+              >
+                <div class="flex items-center justify-between mb-4">
+                  <h4 class="font-bold text-lg">Order Confirmation</h4>
+                  <span
+                    class="material-symbols-outlined text-primary-dim opacity-50"
+                    data-icon="mail"
+                    >mail</span
+                  >
+                </div>
+                <p class="text-sm text-on-surface-variant mb-6 line-clamp-2">
+                  "Your piece is currently in the kiln. We've received your
+                  order and our artisans are preparing it for its new home..."
+                </p>
+                <div class="flex gap-4">
+                  <button
+                    class="text-xs font-bold text-primary uppercase tracking-widest flex items-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-sm mr-2"
+                      data-icon="edit"
+                      >edit</span
+                    >
+                    Edit Template
+                  </button>
+                  <button
+                    class="text-xs font-bold text-on-surface-variant uppercase tracking-widest flex items-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-sm mr-2"
+                      data-icon="visibility"
+                      >visibility</span
+                    >
+                    Preview
+                  </button>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div
+                  class="bg-surface-container-low p-6 rounded-xl border-b border-outline-variant/10 hover:bg-surface-container transition-colors"
+                >
+                  <h4 class="font-bold mb-2">Shipping Update</h4>
+                  <p class="text-xs text-on-surface-variant mb-4">
+                    Sent when a carrier picks up the vessel.
+                  </p>
+                  <button
+                    class="text-[10px] font-bold text-primary uppercase tracking-widest"
+                  >
+                    Manage
+                  </button>
+                </div>
+                <div
+                  class="bg-surface-container-low p-6 rounded-xl border-b border-outline-variant/10 hover:bg-surface-container transition-colors"
+                >
+                  <h4 class="font-bold mb-2">Welcome Email</h4>
+                  <p class="text-xs text-on-surface-variant mb-4">
+                    Initial curator welcome sequence.
+                  </p>
+                  <button
+                    class="text-[10px] font-bold text-primary uppercase tracking-widest"
+                  >
+                    Manage
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Footer Action Bar (Fixed-ish Floating) -->
+        <div class="sticky bottom-8 left-0 right-0 max-w-5xl mx-auto z-40 px-4">
+          <div
+            class="bg-[#2f3430]/95 backdrop-blur-md rounded-full px-8 py-4 flex items-center justify-between shadow-2xl"
+          >
+            <p class="text-on-primary font-medium text-sm">
+              Unsaved changes in
+              <span class="italic font-serif">Legal</span> and
+              <span class="italic font-serif">Communication</span>
+            </p>
+            <div class="flex space-x-6">
+              <button
+                class="text-stone-400 text-sm font-bold uppercase tracking-widest hover:text-white transition-colors"
+              >
+                Discard
+              </button>
+              <button
+                class="bg-primary-fixed text-on-primary-fixed px-8 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform"
+              >
+                Save Configuration
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
