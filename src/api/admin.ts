@@ -1,16 +1,15 @@
-import api from './axios';
+import api from "./axios";
 
 export interface DashboardStats {
-  totalRevenue: number;
-  activeArtisans: number;
-  totalCollections: number;
-  pendingOrders: number;
+  totalSales: number;
+  artisanCount: number;
+  activeProducts: number;
+  orderCount: number;
 }
 
 export interface ChartData {
-  month: string;
-  year: number;
-  revenue: number;
+  date: string;
+  amount: number;
 }
 
 export interface RecentOrder {
@@ -33,16 +32,19 @@ export interface SpotlightArtisan {
 
 export interface DashboardOverviewResponse {
   stats: DashboardStats;
-  revenueChart: ChartData[];
+  salesHistory: ChartData[];
   spotlight: SpotlightArtisan | null;
   recentOrders: RecentOrder[];
 }
 
 export const adminApi = {
-  getDashboardOverview: async (range: '6months' | '1year') => {
-    const response = await api.get<DashboardOverviewResponse>(`/admin/dashboard/overview`, {
-      params: { range }
-    });
+  getDashboardOverview: async (range: "6months" | "1year") => {
+    const response = await api.get<DashboardOverviewResponse>(
+      `/admin/dashboard/overview`,
+      {
+        params: { range },
+      },
+    );
     return response.data;
-  }
+  },
 };

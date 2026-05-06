@@ -15,33 +15,40 @@ import { SpotlightCard } from "./components/SpotlightCard";
 import { RecentOrdersTable } from "./components/RecentOrdersTable";
 
 const formatCurrency = (amount: number) => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   }).format(amount);
 };
 
 const getStatusColor = (status: string) => {
   switch (status.toLowerCase()) {
-    case 'paid':
-    case 'delivered':
-      return 'green';
-    case 'pending_payment':
-    case 'pending':
-      return 'amber';
-    case 'shipped':
-      return 'blue';
-    case 'cancelled':
-      return 'red';
+    case "paid":
+    case "delivered":
+      return "green";
+    case "pending_payment":
+    case "pending":
+      return "amber";
+    case "shipped":
+      return "blue";
+    case "cancelled":
+      return "red";
     default:
-      return 'slate';
+      return "slate";
   }
 };
 
 export const DashboardOverview = () => {
-  const { dashboardData: data, isLoading, error, fetchDashboardOverview } = useAdminStore();
+  const {
+    dashboardData: data,
+    isLoading,
+    error,
+    fetchDashboardOverview,
+  } = useAdminStore();
+  console.log("data: ", data);
+
   const user = useAuthStore((state) => state.user);
-  const [range, setRange] = useState<'6months' | '1year'>('6months');
+  const [range, setRange] = useState<"6months" | "1year">("6months");
 
   const firstName = user?.email.split("@")[0].split(".")[0] || "Elena";
   const formattedFirstName =
@@ -69,10 +76,12 @@ export const DashboardOverview = () => {
           <AlertCircle size={48} />
         </div>
         <div className="text-center space-y-2">
-          <h2 className="text-2xl font-headline italic">Something went wrong</h2>
+          <h2 className="text-2xl font-headline italic">
+            Something went wrong
+          </h2>
           <p className="text-on-surface-variant/60 max-w-md">{error}</p>
         </div>
-        <button 
+        <button
           onClick={() => fetchDashboardOverview(range)}
           className="px-8 py-3 bg-primary text-on-primary rounded-xl font-bold shadow-lg hover:shadow-2xl transition-all"
         >
@@ -107,7 +116,7 @@ export const DashboardOverview = () => {
         <StatCard
           icon={CircleDollarSign}
           label="Total Revenue"
-          value={formatCurrency(data.stats.totalRevenue)}
+          value={formatCurrency(data.stats.totalSales)}
           trend="+12.5%"
           trendType="positive"
           colorClass="bg-primary-container text-on-primary-container"
@@ -115,14 +124,14 @@ export const DashboardOverview = () => {
         <StatCard
           icon={Palette}
           label="Active Artisans"
-          value={data.stats.activeArtisans}
+          value={data.stats.artisanCount}
           trend="Stable"
           colorClass="bg-secondary-container text-on-secondary-container"
         />
         <StatCard
           icon={Library}
           label="Total Collections"
-          value={data.stats.totalCollections}
+          value={data.stats.activeProducts}
           trend="+2 new"
           trendType="positive"
           colorClass="bg-tertiary-container text-on-tertiary-container"
@@ -130,15 +139,15 @@ export const DashboardOverview = () => {
         <StatCard
           icon={ReceiptText}
           label="Pending Orders"
-          value={data.stats.pendingOrders}
-          trend={data.stats.pendingOrders > 10 ? "Action Req." : "Managed"}
+          value={data.stats.orderCount}
+          trend={data.stats.orderCount > 10 ? "Action Req." : "Managed"}
           colorClass="bg-error-container/20 text-error"
         />
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <RevenueChart
-          data={data.revenueChart}
+          data={data.salesHistory}
           range={range}
           onRangeChange={setRange}
           isLoading={isLoading}
