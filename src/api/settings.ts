@@ -1,5 +1,16 @@
 import axios from "./axios";
 
+export interface DeliveryMethod {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  currency: string;
+  estimatedDays: string;
+  isActive: boolean;
+  isDefault: boolean;
+}
+
 export interface SystemSettings {
   general: {
     defaultCurrency: "USD" | "EUR" | "GBP" | "AED";
@@ -18,6 +29,7 @@ export interface SystemSettings {
       isVerified: boolean;
     };
   };
+  deliveryMethods: DeliveryMethod[];
   legal: {
     termsAndConditions: {
       content: string;

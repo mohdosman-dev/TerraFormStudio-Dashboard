@@ -440,6 +440,146 @@
               </div>
             </div>
           </section>
+          <section
+            class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
+            id="delivery-methods"
+          >
+            <div class="">
+              <h3 class="serif-text text-xl mb-2">Delivery Methods</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Manage logistical paths and shipping speeds for global delivery.
+              </p>
+            </div>
+            <div class="md:col-span-2 space-y-4">
+              <div
+                class="bg-white dark:bg-stone-800 p-6 rounded-xl shadow-sm border border-outline-variant/10"
+              >
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-primary"
+                        data-icon="local_shipping"
+                        >local_shipping</span
+                      >
+                    </div>
+                    <div>
+                      <p class="font-bold text-on-surface">Standard Shipping</p>
+                      <p class="text-xs text-on-surface-variant">
+                        3-5 business days. Reliable ground transport.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span
+                      class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant"
+                      >Default</span
+                    >
+                    <div
+                      class="w-10 h-5 bg-primary rounded-full relative cursor-pointer"
+                    >
+                      <div
+                        class="absolute right-0.5 top-0.5 w-4 h-4 bg-white rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-between mt-4 pt-4 border-t border-outline-variant/10"
+                >
+                  <div class="flex items-center gap-2">
+                    <input
+                      checked=""
+                      class="w-4 h-4 text-primary focus:ring-primary border-outline-variant bg-transparent"
+                      name="default_shipping"
+                      type="radio"
+                    />
+                    <span class="text-xs font-medium text-on-surface"
+                      >Set as Default</span
+                    >
+                  </div>
+                  <button
+                    class="text-primary font-bold text-xs uppercase tracking-widest flex items-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-sm mr-1"
+                      data-icon="edit"
+                      >edit</span
+                    >
+                    Edit
+                  </button>
+                </div>
+              </div>
+              <div
+                class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10"
+              >
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-stone-400"
+                        data-icon="bolt"
+                        >bolt</span
+                      >
+                    </div>
+                    <div>
+                      <p class="font-bold text-on-surface">Express Courier</p>
+                      <p class="text-xs text-on-surface-variant">
+                        Next-day delivery. Priority handling and tracking.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-10 h-5 bg-stone-300 rounded-full relative cursor-pointer"
+                    >
+                      <div
+                        class="absolute left-0.5 top-0.5 w-4 h-4 bg-white rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-between mt-4 pt-4 border-t border-outline-variant/10"
+                >
+                  <div class="flex items-center gap-2">
+                    <input
+                      class="w-4 h-4 text-primary focus:ring-primary border-outline-variant bg-transparent"
+                      name="default_shipping"
+                      type="radio"
+                    />
+                    <span class="text-xs font-medium text-on-surface"
+                      >Set as Default</span
+                    >
+                  </div>
+                  <button
+                    class="text-primary font-bold text-xs uppercase tracking-widest flex items-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-sm mr-1"
+                      data-icon="edit"
+                      >edit</span
+                    >
+                    Edit
+                  </button>
+                </div>
+              </div>
+              <button
+                class="w-full py-4 border-2 border-dashed border-outline-variant rounded-xl text-on-surface-variant hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-widest"
+              >
+                <span
+                  class="material-symbols-outlined text-sm"
+                  data-icon="add_circle"
+                  >add_circle</span
+                >
+                Add Delivery Method
+              </button>
+            </div>
+          </section>
           <!-- Legal Section -->
           <section
             class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
